@@ -1,0 +1,12 @@
+<ion-view view-title="Pokémons">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="pkm in pkms" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}">
+        <img ng-src="img/pokemons/{{pkm.id}}.ico">
+        <h2>{{pkm.name}}</h2>
+        <p>{{pkm.type}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
