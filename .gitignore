@@ -1,0 +1,29 @@
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+mvnw
+mvnw.cmd
+.mvn
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Config
+/build
+/local.properties
+.gradle
+
+node_modules/
+platforms/
+plugins/
