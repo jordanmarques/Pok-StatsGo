@@ -6,9 +6,38 @@
 -->
 <ion-view view-title="{{pkm.name}}">
   <ion-content class="padding">
-    <img ng-src="{{pkm.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{pkm.lastText}}
-    </p>
+
+    <div class="row">
+      <div class="col col-30">
+        <img ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 160px; height: 160px">
+      </div>
+      <div class="col">
+        <p>
+          <b class="badge-type" ng-repeat="type in pkm.types" ng-class="[type]">{{type}}</b>
+        </p>
+        <p>Max CP: {{pkm.cp}}</p>
+        <p>Vie: {{pkm.health}}</p>
+        <p>Attaque: {{pkm.attaque}}</p>
+        <p>Defense: {{pkm.defense}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col col-50">
+          <h5>Capacité:</h5>
+            <ion-list>
+              <ion-item ng-repeat="ability in pkm.abilities">{{ability}}&nbsp;</ion-item>
+            </ion-list>
+      </div>
+
+       <div class="col col-50">
+          <h5>Capacité&nbsp;Spécial:</h5>
+          <ion-list>
+            <ion-item ng-repeat="speAbility in pkm.speAbilities">{{speAbility}}&nbsp;</ion-item>
+          </ion-list>
+
+      </div>
+    </div>
+
   </ion-content>
 </ion-view>

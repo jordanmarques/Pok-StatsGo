@@ -61,7 +61,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     })
 
     .state('tab.pkm-detail', {
-      url: '/pkm/:pkmId',
+      url: '/pkm/:pkmId&:name',
       views: {
         'tab-pkms': {
           templateUrl: 'templates/pkms-detail.html',

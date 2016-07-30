@@ -1,12 +1,23 @@
 <ion-view view-title="Pokémons">
   <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="pkm in pkms" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}">
-        <img ng-src="img/pokemons/{{pkm.id}}.ico">
-        <h2>{{pkm.name}}</h2>
-        <p>{{pkm.type}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-      </ion-item>
-    </ion-list>
+
+    <div ng-show="isLoading" class="col col-50 col-offset-20">
+      <img src="img/icon/loader.gif" style="width: 220px; height: 260px" >
+    </div>
+
+    <div ng-hide="isLoading">
+      <ion-list>
+        <ion-item class="item-avatar item-icon-right" ng-repeat="pkm in pkms" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.name}}">
+          <img ng-src="img/pokemons/{{pkm.id}}.ico">
+          <h2>#{{pkm.id}}&nbsp;{{pkm.name}}</h2>
+          <p>
+            <b class="badge-type" ng-repeat="type in pkm.types" ng-class="[type]">{{type}}</b>
+          </p>
+          <i class="icon ion-chevron-right icon-accessory"></i>
+        </ion-item>
+      </ion-list>
+    </div>
+
+
   </ion-content>
 </ion-view>

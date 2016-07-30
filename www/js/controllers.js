@@ -10,14 +10,37 @@ angular.module('starter.controllers', [])
   //
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+  $scope.isLoading = true;
 
-  Pkms.all().success(function(data){
+  $scope.pkms = Pkms.all().success(function(data){
     $scope.pkms = data;
+    for(i = 0; i <  $scope.pkms.length; i++ ){
+        $scope.pkms[i].types =  $scope.pkms[i].types.split(" ")
+        $scope.pkms[i].abilities =  $scope.pkms[i].abilities.split("\n")
+        $scope.pkms[i].speAbilities =  $scope.pkms[i].speAbilities.split("\n")
+      
+    }
+    $scope.isLoading = false;
   });
 })
 
 .controller('PkmDetailCtrl', function($scope, $stateParams, Pkms) {
-  $scope.pkm = Pkms.get($stateParams.pkmId);
+  var pkmId = $stateParams.pkmId;
+  $scope.pkm = {};
+  $scope.pkm.name = $stateParams.name;
+
+  Pkms.all().success(function(data){
+    for(i = 0; i < data.length; i++ ){
+      if(data[i].id == pkmId){
+        $scope.pkm = data[i];
+        $scope.pkm.types = $scope.pkm.types.split(" ")
+        $scope.pkm.abilities = $scope.pkm.abilities.split("\n")
+        $scope.pkm.speAbilities = $scope.pkm.speAbilities.split("\n")
+      }
+    }
+  })
+
+
 })
 
 .controller('AccountCtrl', function($scope) {
