@@ -1,1 +1,13 @@
 /* Empty. Add your own CSS if you like */
+
+.icon{
+  background-size:cover;
+}
+
+.icon-ability{
+  content: url('../img/icon/normal.png');
+}
+
+.icon-pokeball{
+  content: url('../img/icon/poke.png');
+}
