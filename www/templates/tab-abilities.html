@@ -20,16 +20,31 @@
       <div class="col">
 
         <ion-list ng-show="isSimpleActive">
-          <ion-item ng-repeat="ability in abilities">
-            <span>{{ability.nameFr}}</span>
-            <span>{{ability.dps}}</span>
+          <ion-item ng-repeat="ability in abilities track by $index">
+            <div class="row">
+              <div class="col col-30">
+                {{ability.nameFr}}
+              </div>
+              <div class="col col-20">
+                <b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
+              </div>
+              <div class="col col-50 text-center">{{ability.dps}}</div>
+            </div>
+
           </ion-item>
         </ion-list>
 
         <ion-list ng-show="!isSimpleActive">
-          <ion-item ng-repeat="speAbility in speAbilities">
-            <span>{{speAbility.nameFr}}</span>
-            <span>{{speAbility.dps}}</span>
+          <ion-item ng-repeat="speAbility in speAbilities track by $index">
+            <div class="row">
+              <div class="col col-30">
+                {{speAbility.nameFr}}
+              </div>
+              <div class="col col-20">
+                <b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
+              </div>
+              <div class="col col-50 text-center">{{speAbility.dps}}</div>
+            </div>
           </ion-item>
         </ion-list>
 

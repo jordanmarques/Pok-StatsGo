@@ -24,21 +24,50 @@
 
     <div class="row">
       <div class="col col-50">
-          <h5>Capacité:</h5>
+          <h5>Capacité(s):</h5>
             <ion-list>
               <ion-item ng-repeat="ability in pkm.abilities">
-                <span>{{ability.nameFr}}</span>
-                <span>{{ability.dps}}</span>
+                <div class="row">
+                  <div class="col col-50">
+                    {{ability.nameFr}}
+                    <p>
+                      <b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
+                    </p>
+                  </div>
+                  <div class="col col-offset-10 col-40">
+                    <ul>
+                      <li>{{ability.damage}}</li>
+                      <li>{{ability.duration}} s</li>
+                      <li>{{ability.dps}}</li>
+                    </ul>
+
+
+
+                  </div>
+                </div>
               </ion-item>
             </ion-list>
       </div>
 
        <div class="col col-50">
-          <h5>Capacité&nbsp;Spécial:</h5>
+          <h5>Capacité(s)&nbsp;Spécial:</h5>
           <ion-list>
             <ion-item ng-repeat="speAbility in pkm.speAbilities">
-              <span>{{speAbility.nameFr}}</span>
-              <span>{{speAbility.dps}}</span>
+              <div class="row">
+                <div class="col col-50">
+                  {{speAbility.nameFr}}
+                  <p>
+                    <b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
+                  </p>
+                </div>
+                <div class="col col-offset-10 col-40">
+                  <ul>
+                    <li>{{speAbility.damage}}</li>
+                    <li>{{speAbility.cooldown}} s</li>
+                    <li>{{speAbility.dps}}</li>
+                  </ul>
+                </div>
+              </div>
             </ion-item>
           </ion-list>
 
