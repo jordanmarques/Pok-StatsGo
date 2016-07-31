@@ -1,6 +1,13 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope) {})
+.controller('AbilitiesCtrl', function($q, $scope, Pkms) {
+    $scope.isSimpleActive = true
+  
+    $q.all([Pkms.getAbilities(), Pkms.getSpeAbilities()]).then(function(data){
+      $scope.abilities = data[0].data;
+      $scope.speAbilities = data[1].data;
+    })
+})
 
 .controller('PkmsCtrl', function($scope, Pkms) {
   // With the new view caching in Ionic, Controllers are only called
@@ -27,6 +34,7 @@ angular.module('starter.controllers', [])
     for(i = 0; i < data.length; i++ ){
       if(data[i].id == pkmId){
         $scope.pkm = data[i];
+        //(((atk*atkpokemon)/150+2)*STAB)/duréeAttaque
       }
     }
   })

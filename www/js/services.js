@@ -8,7 +8,7 @@ angular.module('starter.services', [])
       return $http.get('json/pokemons.json');
     },
     getAbilities: function(){
-      return $http.get('json/abilites.json');
+      return $http.get('json/abilities.json');
     },
     getSpeAbilities: function(){
       return $http.get('json/speAbilities.json');
