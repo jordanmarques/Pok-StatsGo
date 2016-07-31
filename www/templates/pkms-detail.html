@@ -13,7 +13,7 @@
       </div>
       <div class="col">
         <p>
-          <b class="badge-type" ng-repeat="type in pkm.types" ng-class="[type]">{{type}}</b>
+          <b class="badge-type" ng-repeat="type in pkm.typesFr" ng-class="[type]">{{type}}</b>
         </p>
         <p>Max CP: {{pkm.cp}}</p>
         <p>Vie: {{pkm.health}}</p>
@@ -26,14 +26,14 @@
       <div class="col col-50">
           <h5>Capacité:</h5>
             <ion-list>
-              <ion-item ng-repeat="ability in pkm.abilities">{{ability}}&nbsp;</ion-item>
+              <ion-item ng-repeat="ability in pkm.abilities">{{ability.nameFr}}&nbsp;</ion-item>
             </ion-list>
       </div>
 
        <div class="col col-50">
           <h5>Capacité&nbsp;Spécial:</h5>
           <ion-list>
-            <ion-item ng-repeat="speAbility in pkm.speAbilities">{{speAbility}}&nbsp;</ion-item>
+            <ion-item ng-repeat="speAbility in pkm.speAbilities">{{speAbility.nameFr}}&nbsp;</ion-item>
           </ion-list>
 
       </div>

@@ -4,20 +4,15 @@ angular.module('starter.services', [])
 
   return {
 
-    all: function() {
-      
-      var pokemonJson = 'json/pokemons.json';
-      
-      return $http.get(pokemonJson);
+    getPokemons: function() {
+      return $http.get('json/pokemons.json');
     },
-
-    get: function(pkmId) {
-      for(i = 0; i < pkms; i++ ){
-        if(pkms[i].id == pkmId){
-          return pkms[i];
-        }
-      }
+    getAbilities: function(){
+      return $http.get('json/abilites.json');
+    },
+    getSpeAbilities: function(){
+      return $http.get('json/speAbilities.json');
     }
-
+    
   };
 });
