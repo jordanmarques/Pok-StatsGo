@@ -42,20 +42,21 @@
             <ion-list>
               <ion-item ng-repeat="ability in pkm.abilities">
                 <div class="row">
-                  <div class="col col-50">
-                    {{ability.nameFr}}
-                    <p>
-                      <b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
-                    </p>
+                  <div class="col item-header">
+                    <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
                   </div>
-                  <div class="col col-offset-10 col-40">
+                </div>
+                <div class="row">
+                  <div class="col">
                     <ul>
-                      <li>{{ability.damage}}</li>
-                      <li>{{ability.duration}} s</li>
-                      <li>{{ability.dps}}</li>
+                      <li><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.damage}}</span></li>
+                      <li><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{ability.duration}} s</span></li>
+                      <li><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.dps}}</span></li>
                     </ul>
                   </div>
                 </div>
+
+
               </ion-item>
             </ion-list>
       </div>
@@ -65,20 +66,20 @@
           <ion-list>
             <ion-item ng-repeat="speAbility in pkm.speAbilities">
               <div class="row">
-                <div class="col col-50">
-                  {{speAbility.nameFr}}
-                  <p>
-                    <b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
-                  </p>
+                <div class="col item-header">
+                  <b>{{speAbility.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
                 </div>
-                <div class="col col-offset-10 col-40">
+              </div>
+              <div class="row">
+                <div class="col">
                   <ul>
-                    <li>{{speAbility.damage}}</li>
-                    <li>{{speAbility.cooldown}} s</li>
-                    <li>{{speAbility.dps}}</li>
+                    <li><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.damage}}</span></li>
+                    <li><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{speAbility.cooldown}} s</span></li>
+                    <li><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.dps}}</span></li>
                   </ul>
                 </div>
               </div>
+
             </ion-item>
           </ion-list>
 

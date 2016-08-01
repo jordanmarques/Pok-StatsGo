@@ -122,3 +122,8 @@ table.center{
 .padding-15{
   padding-left: 15px;
 }
+
+.item-header{
+  text-align: center;
+  border-bottom: #dddddd solid 1px;
+}
