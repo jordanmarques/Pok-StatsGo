@@ -9,7 +9,7 @@ angular.module('starter.controllers', [])
     })
 })
 
-.controller('PkmsCtrl', function($scope, Pkms) {
+.controller('PkmsCtrl', function($scope, Pkms, $timeout) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -18,8 +18,9 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   $scope.isLoading = true;
+  
 
-  $scope.pkms = Pkms.getPokemons().success(function(data){
+  Pkms.getPokemons().success(function(data){
     $scope.pkms = data;
     $scope.isLoading = false;
   });
