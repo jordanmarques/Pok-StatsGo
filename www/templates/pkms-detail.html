@@ -38,11 +38,11 @@
 
     <div class="row">
       <div class="col col-50">
-          <h5>Capacité(s):</h5>
+          <h5 class="text-center">Capacité(s):</h5>
             <ion-list>
               <ion-item ng-repeat="ability in pkm.abilities">
                 <div class="row">
-                  <div class="col item-header">
+                  <div class="col text-center">
                     <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
                   </div>
                 </div>
@@ -62,11 +62,11 @@
       </div>
 
        <div class="col col-50">
-          <h5>Capacité(s)&nbsp;Spécial:</h5>
+          <h5 class="text-center">Capacité(s)&nbsp;Spécial:</h5>
           <ion-list>
             <ion-item ng-repeat="speAbility in pkm.speAbilities">
               <div class="row">
-                <div class="col item-header">
+                <div class="col text-center">
                   <b>{{speAbility.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
                 </div>
               </div>

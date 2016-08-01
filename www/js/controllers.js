@@ -28,7 +28,7 @@ angular.module('starter.controllers', [])
 .controller('PkmDetailCtrl', function($scope, $stateParams, Pkms) {
   var pkmId = $stateParams.pkmId;
   $scope.pkm = {};
-  $scope.pkm.name = $stateParams.name;
+  $scope.pkm.name = "#" + $stateParams.name;
 
   Pkms.getPokemons().success(function(data){
     for(i = 0; i < data.length; i++ ){
