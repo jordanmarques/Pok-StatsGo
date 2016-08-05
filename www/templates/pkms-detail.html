@@ -55,7 +55,11 @@
                     </ul>
                   </div>
                 </div>
-
+                <div class="row">
+                  <div class="col text-center">
+                    <b>DPS de {{pkm.nameFr}}&nbsp;{{ability.pkmDps}}</b>
+                  </div>
+                </div>
 
               </ion-item>
             </ion-list>
@@ -74,12 +78,16 @@
                 <div class="col">
                   <ul>
                     <li><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.damage}}</span></li>
-                    <li><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{speAbility.cooldown}} s</span></li>
+                    <li><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{speAbility.duration}} s</span></li>
                     <li><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.dps}}</span></li>
                   </ul>
                 </div>
               </div>
-
+              <div class="row">
+                <div class="col text-center">
+                  <b>DPS de {{pkm.nameFr}}&nbsp;{{speAbility.pkmDps}}</b>
+                </div>
+              </div>
             </ion-item>
           </ion-list>
 

@@ -6,7 +6,7 @@
 		"typeEn": "steel",
 		"typeFr": "acier",
 		"damage": "30",
-		"cooldown": "2.00",
+		"duration": "2.00",
 		"dps": "15.00",
 		"CCchance": "5",
 		"esquive": "0.25"
@@ -18,7 +18,7 @@
 		"typeEn": "steel",
 		"typeFr": "acier",
 		"damage": "30",
-		"cooldown": "2.80",
+		"duration": "2.80",
 		"dps": "10.71",
 		"CCchance": "5",
 		"esquive": "0.55"
@@ -30,7 +30,7 @@
 		"typeEn": "steel",
 		"typeFr": "acier",
 		"damage": "60",
-		"cooldown": "3.90",
+		"duration": "3.90",
 		"dps": "15.38",
 		"CCchance": "5",
 		"esquive": "1.1"
@@ -42,7 +42,7 @@
 		"typeEn": "fight",
 		"typeFr": "combat",
 		"damage": "30",
-		"cooldown": "1.60",
+		"duration": "1.60",
 		"dps": "18.75",
 		"CCchance": "25",
 		"esquive": "0.4"
@@ -54,7 +54,7 @@
 		"typeEn": "fight",
 		"typeFr": "combat",
 		"damage": "60",
-		"cooldown": "2.00",
+		"duration": "2.00",
 		"dps": "30.00",
 		"CCchance": "25",
 		"esquive": "0.3"
@@ -66,7 +66,7 @@
 		"typeEn": "fight",
 		"typeFr": "combat",
 		"damage": "30",
-		"cooldown": "2.10",
+		"duration": "2.10",
 		"dps": "14.29",
 		"CCchance": "5",
 		"esquive": "0.15"
@@ -78,7 +78,7 @@
 		"typeEn": "fight",
 		"typeFr": "combat",
 		"damage": "30",
-		"cooldown": "2.25",
+		"duration": "2.25",
 		"dps": "13.33",
 		"CCchance": "5",
 		"esquive": "0.15"
@@ -90,7 +90,7 @@
 		"typeEn": "dragon",
 		"typeFr": "dragon",
 		"damage": "35",
-		"cooldown": "1.50",
+		"duration": "1.50",
 		"dps": "23.33",
 		"CCchance": "25",
 		"esquive": "0.2"
@@ -102,7 +102,7 @@
 		"typeEn": "dragon",
 		"typeFr": "dragon",
 		"damage": "30",
-		"cooldown": "2.70",
+		"duration": "2.70",
 		"dps": "11.11",
 		"CCchance": "5",
 		"esquive": "1.75"
@@ -114,7 +114,7 @@
 		"typeEn": "dragon",
 		"typeFr": "dragon",
 		"damage": "65",
-		"cooldown": "3.60",
+		"duration": "3.60",
 		"dps": "18.06",
 		"CCchance": "5",
 		"esquive": "1.2"
@@ -126,7 +126,7 @@
 		"typeEn": "water",
 		"typeFr": "eau",
 		"damage": "45",
-		"cooldown": "2.35",
+		"duration": "2.35",
 		"dps": "19.15",
 		"CCchance": "5",
 		"esquive": "0.2"
@@ -138,7 +138,7 @@
 		"typeEn": "water",
 		"typeFr": "eau",
 		"damage": "25",
-		"cooldown": "2.35",
+		"duration": "2.35",
 		"dps": "10.64",
 		"CCchance": "5",
 		"esquive": "0.4"
@@ -150,7 +150,7 @@
 		"typeEn": "water",
 		"typeFr": "eau",
 		"damage": "25",
-		"cooldown": "2.40",
+		"duration": "2.40",
 		"dps": "10.42",
 		"CCchance": "5",
 		"esquive": "0.35"
@@ -162,7 +162,7 @@
 		"typeEn": "water",
 		"typeFr": "eau",
 		"damage": "30",
-		"cooldown": "2.90",
+		"duration": "2.90",
 		"dps": "10.34",
 		"CCchance": "5",
 		"esquive": "0.2"
@@ -174,7 +174,7 @@
 		"typeEn": "water",
 		"typeFr": "eau",
 		"damage": "25",
-		"cooldown": "3.30",
+		"duration": "3.30",
 		"dps": "7.58",
 		"CCchance": "5",
 		"esquive": "1"
@@ -186,7 +186,7 @@
 		"typeEn": "water",
 		"typeFr": "eau",
 		"damage": "90",
-		"cooldown": "3.80",
+		"duration": "3.80",
 		"dps": "23.68",
 		"CCchance": "5",
 		"esquive": "2.1"
@@ -198,7 +198,7 @@
 		"typeEn": "water",
 		"typeFr": "eau",
 		"damage": "55",
-		"cooldown": "4.00",
+		"duration": "4.00",
 		"dps": "13.75",
 		"CCchance": "5",
 		"esquive": "2.1"
@@ -210,7 +210,7 @@
 		"typeEn": "electr",
 		"typeFr": "éleck",
 		"damage": "40",
-		"cooldown": "2.40",
+		"duration": "2.40",
 		"dps": "16.67",
 		"CCchance": "5",
 		"esquive": "0.25"
@@ -222,7 +222,7 @@
 		"typeEn": "electr",
 		"typeFr": "éleck",
 		"damage": "35",
-		"cooldown": "2.50",
+		"duration": "2.50",
 		"dps": "14.00",
 		"CCchance": "5",
 		"esquive": "0.7"
@@ -234,7 +234,7 @@
 		"typeEn": "electr",
 		"typeFr": "éleck",
 		"damage": "55",
-		"cooldown": "2.70",
+		"duration": "2.70",
 		"dps": "20.37",
 		"CCchance": "5",
 		"esquive": "0.8"
@@ -246,7 +246,7 @@
 		"typeEn": "electr",
 		"typeFr": "éleck",
 		"damage": "100",
-		"cooldown": "4.30",
+		"duration": "4.30",
 		"dps": "23.26",
 		"CCchance": "5",
 		"esquive": "1.55"
@@ -258,7 +258,7 @@
 		"typeEn": "fairy",
 		"typeFr": "fée",
 		"damage": "25",
-		"cooldown": "2.80",
+		"duration": "2.80",
 		"dps": "8.93",
 		"CCchance": "5",
 		"esquive": "0.1"
@@ -270,7 +270,7 @@
 		"typeEn": "fairy",
 		"typeFr": "fée",
 		"damage": "55",
-		"cooldown": "2.90",
+		"duration": "2.90",
 		"dps": "18.97",
 		"CCchance": "5",
 		"esquive": "1.3"
@@ -282,7 +282,7 @@
 		"typeEn": "fairy",
 		"typeFr": "fée",
 		"damage": "25",
-		"cooldown": "3.90",
+		"duration": "3.90",
 		"dps": "6.41",
 		"CCchance": "5",
 		"esquive": "1.8"
@@ -294,7 +294,7 @@
 		"typeEn": "fairy",
 		"typeFr": "fée",
 		"damage": "85",
-		"cooldown": "4.10",
+		"duration": "4.10",
 		"dps": "20.73",
 		"CCchance": "5",
 		"esquive": "0.6"
@@ -306,7 +306,7 @@
 		"typeEn": "fairy",
 		"typeFr": "fée",
 		"damage": "55",
-		"cooldown": "4.20",
+		"duration": "4.20",
 		"dps": "13.10",
 		"CCchance": "5",
 		"esquive": "0.8"
@@ -318,7 +318,7 @@
 		"typeEn": "fire",
 		"typeFr": "feu",
 		"damage": "30",
-		"cooldown": "2.10",
+		"duration": "2.10",
 		"dps": "14.29",
 		"CCchance": "5",
 		"esquive": "0.2"
@@ -330,7 +330,7 @@
 		"typeEn": "fire",
 		"typeFr": "feu",
 		"damage": "40",
-		"cooldown": "2.80",
+		"duration": "2.80",
 		"dps": "14.29",
 		"CCchance": "5",
 		"esquive": "0.51"
@@ -342,7 +342,7 @@
 		"typeEn": "fire",
 		"typeFr": "feu",
 		"damage": "55",
-		"cooldown": "2.90",
+		"duration": "2.90",
 		"dps": "18.97",
 		"CCchance": "5",
 		"esquive": "0.9"
@@ -354,7 +354,7 @@
 		"typeEn": "fire",
 		"typeFr": "feu",
 		"damage": "25",
-		"cooldown": "3.10",
+		"duration": "3.10",
 		"dps": "8.06",
 		"CCchance": "5",
 		"esquive": "0.2"
@@ -366,7 +366,7 @@
 		"typeEn": "fire",
 		"typeFr": "feu",
 		"damage": "80",
-		"cooldown": "3.80",
+		"duration": "3.80",
 		"dps": "21.05",
 		"CCchance": "5",
 		"esquive": "0.4"
@@ -378,7 +378,7 @@
 		"typeEn": "fire",
 		"typeFr": "feu",
 		"damage": "100",
-		"cooldown": "4.10",
+		"duration": "4.10",
 		"dps": "24.39",
 		"CCchance": "5",
 		"esquive": "0.4"
@@ -390,7 +390,7 @@
 		"typeEn": "fire",
 		"typeFr": "feu",
 		"damage": "40",
-		"cooldown": "4.60",
+		"duration": "4.60",
 		"dps": "8.70",
 		"CCchance": "5",
 		"esquive": "0.5"
@@ -402,7 +402,7 @@
 		"typeEn": "ice",
 		"typeFr": "glace",
 		"damage": "45",
-		"cooldown": "3.50",
+		"duration": "3.50",
 		"dps": "12.86",
 		"CCchance": "5",
 		"esquive": "1.1"
@@ -414,7 +414,7 @@
 		"typeEn": "ice",
 		"typeFr": "glace",
 		"damage": "65",
-		"cooldown": "3.65",
+		"duration": "3.65",
 		"dps": "17.81",
 		"CCchance": "5",
 		"esquive": "1.35"
@@ -426,7 +426,7 @@
 		"typeEn": "ice",
 		"typeFr": "glace",
 		"damage": "25",
-		"cooldown": "3.80",
+		"duration": "3.80",
 		"dps": "6.58",
 		"CCchance": "5",
 		"esquive": "0.7"
@@ -438,7 +438,7 @@
 		"typeEn": "ice",
 		"typeFr": "glace",
 		"damage": "100",
-		"cooldown": "3.90",
+		"duration": "3.90",
 		"dps": "25.64",
 		"CCchance": "5",
 		"esquive": "0"
@@ -450,7 +450,7 @@
 		"typeEn": "bug",
 		"typeFr": "insecte",
 		"damage": "35",
-		"cooldown": "2.10",
+		"duration": "2.10",
 		"dps": "16.67",
 		"CCchance": "5",
 		"esquive": "0.25"
@@ -462,7 +462,7 @@
 		"typeEn": "bug",
 		"typeFr": "insecte",
 		"damage": "45",
-		"cooldown": "3.10",
+		"duration": "3.10",
 		"dps": "14.52",
 		"CCchance": "5",
 		"esquive": "1"
@@ -474,7 +474,7 @@
 		"typeEn": "bug",
 		"typeFr": "insecte",
 		"damage": "80",
-		"cooldown": "3.20",
+		"duration": "3.20",
 		"dps": "25.00",
 		"CCchance": "5",
 		"esquive": "0.3"
@@ -486,7 +486,7 @@
 		"typeEn": "bug",
 		"typeFr": "insecte",
 		"damage": "75",
-		"cooldown": "4.25",
+		"duration": "4.25",
 		"dps": "17.65",
 		"CCchance": "5",
 		"esquive": "1.5"
@@ -498,7 +498,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "40",
-		"cooldown": "1.56",
+		"duration": "1.56",
 		"dps": "25.64",
 		"CCchance": "5",
 		"esquive": "0.2"
@@ -510,7 +510,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "15",
-		"cooldown": "1.69",
+		"duration": "1.69",
 		"dps": "8.88",
 		"CCchance": "0",
 		"esquive": "0.7"
@@ -522,7 +522,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "35",
-		"cooldown": "2.10",
+		"duration": "2.10",
 		"dps": "16.67",
 		"CCchance": "5",
 		"esquive": "0.3"
@@ -534,7 +534,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "30",
-		"cooldown": "2.10",
+		"duration": "2.10",
 		"dps": "14.29",
 		"CCchance": "5",
 		"esquive": "0.7"
@@ -546,7 +546,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "15",
-		"cooldown": "2.10",
+		"duration": "2.10",
 		"dps": "7.14",
 		"CCchance": "5",
 		"esquive": "0.25"
@@ -558,7 +558,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "25",
-		"cooldown": "2.20",
+		"duration": "2.20",
 		"dps": "11.36",
 		"CCchance": "5",
 		"esquive": "0.3"
@@ -570,7 +570,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "30",
-		"cooldown": "3.00",
+		"duration": "3.00",
 		"dps": "10.00",
 		"CCchance": "5",
 		"esquive": "0.5"
@@ -582,7 +582,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "25",
-		"cooldown": "4.00",
+		"duration": "4.00",
 		"dps": "6.25",
 		"CCchance": "5",
 		"esquive": "0.6"
@@ -594,7 +594,7 @@
 		"typeEn": "normal",
 		"typeFr": "normal",
 		"damage": "120",
-		"cooldown": "5.00",
+		"duration": "5.00",
 		"dps": "24.00",
 		"CCchance": "5",
 		"esquive": "0.8"
@@ -606,7 +606,7 @@
 		"typeEn": "grass",
 		"typeFr": "plante",
 		"damage": "40",
-		"cooldown": "2.40",
+		"duration": "2.40",
 		"dps": "16.67",
 		"CCchance": "5",
 		"esquive": "0.5"
@@ -618,7 +618,7 @@
 		"typeEn": "grass",
 		"typeFr": "plante",
 		"damage": "70",
-		"cooldown": "2.80",
+		"duration": "2.80",
 		"dps": "25.00",
 		"CCchance": "0",
 		"esquive": "1.3"
@@ -630,7 +630,7 @@
 		"typeEn": "grass",
 		"typeFr": "plante",
 		"damage": "55",
-		"cooldown": "2.80",
+		"duration": "2.80",
 		"dps": "19.64",
 		"CCchance": "25",
 		"esquive": "1"
@@ -642,7 +642,7 @@
 		"typeEn": "grass",
 		"typeFr": "plante",
 		"damage": "65",
-		"cooldown": "3.20",
+		"duration": "3.20",
 		"dps": "20.31",
 		"CCchance": "5",
 		"esquive": "1"
@@ -654,7 +654,7 @@
 		"typeEn": "grass",
 		"typeFr": "plante",
 		"damage": "25",
-		"cooldown": "3.70",
+		"duration": "3.70",
 		"dps": "6.76",
 		"CCchance": "5",
 		"esquive": "1"
@@ -666,7 +666,7 @@
 		"typeEn": "grass",
 		"typeFr": "plante",
 		"damage": "120",
-		"cooldown": "4.90",
+		"duration": "4.90",
 		"dps": "24.49",
 		"CCchance": "5",
 		"esquive": "1.7"
@@ -678,7 +678,7 @@
 		"typeEn": "poison",
 		"typeFr": "poison",
 		"damage": "25",
-		"cooldown": "1.50",
+		"duration": "1.50",
 		"dps": "16.67",
 		"CCchance": "25",
 		"esquive": "0.3"
@@ -690,7 +690,7 @@
 		"typeEn": "poison",
 		"typeFr": "poison",
 		"damage": "25",
-		"cooldown": "2.40",
+		"duration": "2.40",
 		"dps": "10.42",
 		"CCchance": "5",
 		"esquive": "0.2"
@@ -702,7 +702,7 @@
 		"typeEn": "poison",
 		"typeFr": "poison",
 		"damage": "55",
-		"cooldown": "2.60",
+		"duration": "2.60",
 		"dps": "21.15",
 		"CCchance": "5",
 		"esquive": "0.5"
@@ -714,7 +714,7 @@
 		"typeEn": "poison",
 		"typeFr": "poison",
 		"damage": "30",
-		"cooldown": "2.60",
+		"duration": "2.60",
 		"dps": "11.54",
 		"CCchance": "5",
 		"esquive": "0.5"
@@ -726,7 +726,7 @@
 		"typeEn": "poison",
 		"typeFr": "poison",
 		"damage": "65",
-		"cooldown": "3.00",
+		"duration": "3.00",
 		"dps": "21.67",
 		"CCchance": "5",
 		"esquive": "0.4"
@@ -738,7 +738,7 @@
 		"typeEn": "poison",
 		"typeFr": "poison",
 		"damage": "70",
-		"cooldown": "3.40",
+		"duration": "3.40",
 		"dps": "20.59",
 		"CCchance": "5",
 		"esquive": "0.9"
@@ -750,7 +750,7 @@
 		"typeEn": "psychc",
 		"typeFr": "psy",
 		"damage": "40",
-		"cooldown": "2.70",
+		"duration": "2.70",
 		"dps": "14.81",
 		"CCchance": "5",
 		"esquive": "0.5"
@@ -762,7 +762,7 @@
 		"typeEn": "psychc",
 		"typeFr": "psy",
 		"damage": "55",
-		"cooldown": "2.80",
+		"duration": "2.80",
 		"dps": "19.64",
 		"CCchance": "5",
 		"esquive": "1.2"
@@ -774,7 +774,7 @@
 		"typeEn": "psychc",
 		"typeFr": "psy",
 		"damage": "40",
-		"cooldown": "3.80",
+		"duration": "3.80",
 		"dps": "10.53",
 		"CCchance": "5",
 		"esquive": "1.3"
@@ -786,7 +786,7 @@
 		"typeEn": "rock",
 		"typeFr": "roche",
 		"damage": "40",
-		"cooldown": "2.90",
+		"duration": "2.90",
 		"dps": "13.79",
 		"CCchance": "5",
 		"esquive": "0.8"
@@ -798,7 +798,7 @@
 		"typeEn": "rock",
 		"typeFr": "roche",
 		"damage": "80",
-		"cooldown": "3.10",
+		"duration": "3.10",
 		"dps": "25.81",
 		"CCchance": "50",
 		"esquive": "0.4"
@@ -810,7 +810,7 @@
 		"typeEn": "rock",
 		"typeFr": "roche",
 		"damage": "50",
-		"cooldown": "3.20",
+		"duration": "3.20",
 		"dps": "15.63",
 		"CCchance": "5",
 		"esquive": "1.4"
@@ -822,7 +822,7 @@
 		"typeEn": "rock",
 		"typeFr": "roche",
 		"damage": "30",
-		"cooldown": "3.40",
+		"duration": "3.40",
 		"dps": "8.82",
 		"CCchance": "25",
 		"esquive": "0.9"
@@ -834,7 +834,7 @@
 		"typeEn": "rock",
 		"typeFr": "roche",
 		"damage": "35",
-		"cooldown": "3.60",
+		"duration": "3.60",
 		"dps": "9.72",
 		"CCchance": "5",
 		"esquive": "0.35"
@@ -846,7 +846,7 @@
 		"typeEn": "ground",
 		"typeFr": "sol",
 		"damage": "25",
-		"cooldown": "1.60",
+		"duration": "1.60",
 		"dps": "15.63",
 		"CCchance": "5",
 		"esquive": "0.25"
@@ -858,7 +858,7 @@
 		"typeEn": "ground",
 		"typeFr": "sol",
 		"damage": "30",
-		"cooldown": "2.60",
+		"duration": "2.60",
 		"dps": "11.54",
 		"CCchance": "5",
 		"esquive": "0.45"
@@ -870,7 +870,7 @@
 		"typeEn": "ground",
 		"typeFr": "sol",
 		"damage": "50",
-		"cooldown": "3.40",
+		"duration": "3.40",
 		"dps": "14.71",
 		"CCchance": "25",
 		"esquive": "0.7"
@@ -882,7 +882,7 @@
 		"typeEn": "ground",
 		"typeFr": "sol",
 		"damage": "35",
-		"cooldown": "3.40",
+		"duration": "3.40",
 		"dps": "10.29",
 		"CCchance": "5",
 		"esquive": "1.1"
@@ -894,7 +894,7 @@
 		"typeEn": "ground",
 		"typeFr": "sol",
 		"damage": "100",
-		"cooldown": "4.20",
+		"duration": "4.20",
 		"dps": "23.81",
 		"CCchance": "5",
 		"esquive": "1.95"
@@ -906,7 +906,7 @@
 		"typeEn": "ground",
 		"typeFr": "sol",
 		"damage": "70",
-		"cooldown": "5.80",
+		"duration": "5.80",
 		"dps": "12.07",
 		"CCchance": "5",
 		"esquive": "0.4"
@@ -918,7 +918,7 @@
 		"typeEn": "ghost",
 		"typeFr": "spectre",
 		"damage": "45",
-		"cooldown": "3.08",
+		"duration": "3.08",
 		"dps": "14.61",
 		"CCchance": "5",
 		"esquive": "0.3"
@@ -930,7 +930,7 @@
 		"typeEn": "dark",
 		"typeFr": "ténèbres",
 		"damage": "30",
-		"cooldown": "2.70",
+		"duration": "2.70",
 		"dps": "11.11",
 		"CCchance": "5",
 		"esquive": "0.2"
@@ -942,7 +942,7 @@
 		"typeEn": "dark",
 		"typeFr": "ténèbres",
 		"damage": "30",
-		"cooldown": "3.10",
+		"duration": "3.10",
 		"dps": "9.68",
 		"CCchance": "5",
 		"esquive": "0.25"
@@ -954,7 +954,7 @@
 		"typeEn": "dark",
 		"typeFr": "ténèbres",
 		"damage": "45",
-		"cooldown": "3.50",
+		"duration": "3.50",
 		"dps": "12.86",
 		"CCchance": "5",
 		"esquive": "1.1"
@@ -966,7 +966,7 @@
 		"typeEn": "flying",
 		"typeFr": "vol",
 		"damage": "40",
-		"cooldown": "2.70",
+		"duration": "2.70",
 		"dps": "14.81",
 		"CCchance": "5",
 		"esquive": "0.9"
@@ -978,7 +978,7 @@
 		"typeEn": "flying",
 		"typeFr": "vol",
 		"damage": "30",
-		"cooldown": "2.90",
+		"duration": "2.90",
 		"dps": "10.34",
 		"CCchance": "5",
 		"esquive": "0.6"
@@ -990,7 +990,7 @@
 		"typeEn": "flying",
 		"typeFr": "vol",
 		"damage": "80",
-		"cooldown": "3.20",
+		"duration": "3.20",
 		"dps": "25.00",
 		"CCchance": "5",
 		"esquive": "1.77"
@@ -1002,7 +1002,7 @@
 		"typeEn": "flying",
 		"typeFr": "vol",
 		"damage": "30",
-		"cooldown": "3.30",
+		"duration": "3.30",
 		"dps": "9.09",
 		"CCchance": "25",
 		"esquive": "0.9"

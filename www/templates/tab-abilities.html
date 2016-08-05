@@ -20,9 +20,9 @@
       <div class="col">
 
         <ion-list ng-show="isSimpleActive">
-          <ion-item ng-repeat="ability in abilities track by $index">
+          <ion-item class="padding-0" ng-repeat="ability in abilities track by $index">
             <div class="row">
-              <div class="col text-center">
+              <div class="col text-center padding-0">
                 <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
               </div>
             </div>
@@ -41,10 +41,11 @@
         </ion-list>
 
         <ion-list ng-show="!isSimpleActive">
-          <ion-item ng-repeat="speAbility in speAbilities track by $index">
+          <ion-item class="padding-0" ng-repeat="speAbility in speAbilities track by $index">
             <div class="row">
-              <div class="col text-center">
-                <b>{{speAbility.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
+              <div class="col text-center padding-0">
+                <b>{{speAbility.nameFr}}</b>&nbsp;
+                <b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
               </div>
             </div>
             <div class="row">
@@ -52,7 +53,7 @@
                 <table class="center">
                   <tr>
                     <td><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.damage}}</span></td>
-                    <td class="padding-15"><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{speAbility.cooldown}} s</span></>
+                    <td class="padding-15"><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{speAbility.duration}} s</span></>
                     <td class="padding-15"><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.dps}}</span></td>
                   </tr>
                 </table>

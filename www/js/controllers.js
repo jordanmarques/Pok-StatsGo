@@ -2,7 +2,7 @@ angular.module('starter.controllers', [])
 
 .controller('AbilitiesCtrl', function($q, $scope, Pkms) {
     $scope.isSimpleActive = true
-  
+
     $q.all([Pkms.getAbilities(), Pkms.getSpeAbilities()]).then(function(data){
       $scope.abilities = data[0].data;
       $scope.speAbilities = data[1].data;
@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   $scope.isLoading = true;
-  
+
 
   Pkms.getPokemons().success(function(data){
     $scope.pkms = data;
@@ -32,14 +32,47 @@ angular.module('starter.controllers', [])
   $scope.pkm.name = "#" + $stateParams.name;
 
   Pkms.getPokemons().success(function(data){
-    for(i = 0; i < data.length; i++ ){
+    for(var i = 0; i < data.length; i++ ){
       if(data[i].id == pkmId){
         $scope.pkm = data[i];
-        //(((atk*atkpokemon)/150+2)*STAB)/duréeAttaque
+        computeAbilitiesDpsForPkm($scope.pkm)
+        break;
       }
     }
-  })
+  });
 
+  function computeAbilitiesDpsForPkm(pkm) {
+
+    pkm.abilities.forEach(function(ability){
+      computeAbilityDpsForPkm(ability, pkm)
+    });
+
+    pkm.speAbilities.forEach(function(speAbility){
+      computeAbilityDpsForPkm(speAbility, pkm)
+    });
+  }
+
+  function computeAbilityDpsForPkm(ability, pkm){
+
+    var stab = computeSTAB(ability, pkm);
+
+    var pkmDps = (((ability.damage * pkm.attaque) / 150+2) * stab) / ability.duration
+
+    ability.pkmDps = Math.round(pkmDps * 100) / 100
+
+  }
+
+  function computeSTAB(ability, pkm){
+    var stab = 1;
+    
+    pkm.typesEn.forEach(function(type){
+      if(type == ability.typeEn){
+        stab = 1.5
+      }
+    });
+
+    return stab;
+  }
 
 })
 
