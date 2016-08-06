@@ -23,8 +23,13 @@ angular.module('starter.controllers', ['ionic'])
 
 .controller('PkmsCtrl', function($scope, Pkms) {
 
+  $scope.filter = 'id';
+
   Pkms.getPokemons().success(function(data){
     $scope.pkms = data;
+    $scope.pkms.forEach(function(pkm){
+      pkm.cp = parseInt(pkm.cp)
+    })
   });
 
 })

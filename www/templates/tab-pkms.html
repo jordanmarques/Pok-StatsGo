@@ -4,9 +4,14 @@
 
 
     <div>
-      <ion-searchbar ng-model="pkms"></ion-searchbar>
+      <div class="row">
+        <div class="col-offset-25 col-50 padding-5 text-center">
+          <button class="button button-small button-outline button-positive" ng-class="{'button-outline' : filter != '-cp'}" ng-click="filter = '-git cp'">CP</button>
+          <button class="button button-small button-outline button-positive" ng-class="{'button-outline' : filter != 'id'}" ng-click="filter = 'id'">Id</button>
+        </div>
+      </div>
       <ion-list>
-        <ion-item class="item-avatar item-icon-right" collection-repeat="pkm in pkms" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{pkm.nameFr}}">
+        <ion-item class="item-avatar item-icon-right" collection-repeat="pkm in pkms | orderBy:filter" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{pkm.nameFr}}">
           <img ng-src="img/pokemons/{{pkm.id}}.ico">
           <h2><b>#{{pkm.id}}&nbsp;{{pkm.nameFr}}</b></h2>
           <p>
