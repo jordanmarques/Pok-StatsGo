@@ -15,7 +15,11 @@
          <span class="tab-title fs-70">Chargé</span>
        </div>
      </div>
-
+    <div class="row">
+      <div class="col">
+        <input type="search" placeholder="Rechercher..." ng-model="search">
+      </div>
+    </div>
     <div class="row">
       <div class="col-offset-25 col-50 padding-5 text-center">
         <button class="button button-small button-positive" ng-class="{'button-outline' : filter != '-dps'}" ng-click="filter = '-dps'">DPS</button>
@@ -28,7 +32,7 @@
       <div class="col">
 
         <ion-list>
-          <ion-item class="padding-0" collection-repeat="ability in allAbilities| orderBy:filter ">
+          <ion-item class="padding-0" collection-repeat="ability in allAbilities| orderBy:filter | filter:{ nameFr: search }">
             <div class="row">
               <div class="col text-center padding-0">
                 <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
