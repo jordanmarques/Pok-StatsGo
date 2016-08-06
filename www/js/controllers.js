@@ -1,4 +1,4 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ionic'])
 
 .controller('AbilitiesCtrl', function($q, $scope, Pkms) {
     $scope.isSimpleActive = true
@@ -6,24 +6,26 @@ angular.module('starter.controllers', [])
     $q.all([Pkms.getAbilities(), Pkms.getSpeAbilities()]).then(function(data){
       $scope.abilities = data[0].data;
       $scope.speAbilities = data[1].data;
+
+      $scope.abilities.forEach(function(ability){
+        ability.dps = parseFloat(ability.dps);
+      });
+
+      $scope.speAbilities.forEach(function(speAbility){
+        speAbility.dps = parseFloat(speAbility.dps);
+      });
+
+      $scope.allAbilities = $scope.abilities;
+
     })
 })
 
-.controller('PkmsCtrl', function($scope, Pkms, $timeout) {
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-  $scope.isLoading = true;
-
+.controller('PkmsCtrl', function($scope, Pkms) {
 
   Pkms.getPokemons().success(function(data){
     $scope.pkms = data;
-    $scope.isLoading = false;
   });
+
 })
 
 .controller('PkmDetailCtrl', function($scope, $stateParams, Pkms) {
@@ -35,7 +37,7 @@ angular.module('starter.controllers', [])
     for(var i = 0; i < data.length; i++ ){
       if(data[i].id == pkmId){
         $scope.pkm = data[i];
-        computeAbilitiesDpsForPkm($scope.pkm)
+        computeAbilitiesDpsForPkm($scope.pkm);
         break;
       }
     }
@@ -64,7 +66,7 @@ angular.module('starter.controllers', [])
 
   function computeSTAB(ability, pkm){
     var stab = 1;
-    
+
     pkm.typesEn.forEach(function(type){
       if(type == ability.typeEn){
         stab = 1.5

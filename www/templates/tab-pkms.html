@@ -1,13 +1,12 @@
 <ion-view view-title="Pokémons">
   <ion-content>
 
-    <div ng-show="isLoading" class="col col-50 col-offset-25">
-      <img class="center" src="img/icon/loader.gif" >
-    </div>
 
-    <div ng-hide="isLoading">
+
+    <div>
+      <ion-searchbar ng-model="pkms"></ion-searchbar>
       <ion-list>
-        <ion-item class="item-avatar item-icon-right" ng-repeat="pkm in pkms" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{pkm.nameFr}}">
+        <ion-item class="item-avatar item-icon-right" collection-repeat="pkm in pkms" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{pkm.nameFr}}">
           <img ng-src="img/pokemons/{{pkm.id}}.ico">
           <h2><b>#{{pkm.id}}&nbsp;{{pkm.nameFr}}</b></h2>
           <p>

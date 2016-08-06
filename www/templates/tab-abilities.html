@@ -4,13 +4,13 @@
    <div class="row">
      <div class="col-offset-10 col-40 text-center tab-item"
           ng-class="{'active' : isSimpleActive}"
-          ng-click="isSimpleActive = true">
+          ng-click="allAbilities = abilities; isSimpleActive = true">
        <i class="icon icon-ability" style="width: 15px; height: 15px"></i>
        <span class="tab-title fs-70">Simple</span>
      </div>
      <div class="col-40 text-center tab-item"
           ng-class="{'active' : !isSimpleActive}"
-          ng-click="isSimpleActive = false">
+          ng-click="allAbilities = speAbilities; isSimpleActive = false">
        <i class="icon icon-ability" style="width: 15px; height: 15px"></i>
        <span class="tab-title fs-70">Chargé</span>
      </div>
@@ -19,8 +19,8 @@
     <div class="row">
       <div class="col">
 
-        <ion-list ng-show="isSimpleActive">
-          <ion-item class="padding-0" ng-repeat="ability in abilities track by $index">
+        <ion-list>
+          <ion-item class="padding-0" collection-repeat="ability in allAbilities">
             <div class="row">
               <div class="col text-center padding-0">
                 <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
@@ -39,29 +39,6 @@
             </div>
           </ion-item>
         </ion-list>
-
-        <ion-list ng-show="!isSimpleActive">
-          <ion-item class="padding-0" ng-repeat="speAbility in speAbilities track by $index">
-            <div class="row">
-              <div class="col text-center padding-0">
-                <b>{{speAbility.nameFr}}</b>&nbsp;
-                <b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col">
-                <table class="center">
-                  <tr>
-                    <td><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.damage}}</span></td>
-                    <td class="padding-15"><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{speAbility.duration}} s</span></>
-                    <td class="padding-15"><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.dps}}</span></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-          </ion-item>
-        </ion-list>
-
       </div>
     </div>
 
