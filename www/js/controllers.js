@@ -24,6 +24,7 @@ angular.module('starter.controllers', ['ionic'])
 .controller('PkmsCtrl', function($scope, Pkms) {
 
   $scope.filter = 'id';
+  $scope.search = '';
 
   Pkms.getPokemons().success(function(data){
     $scope.pkms = data;
