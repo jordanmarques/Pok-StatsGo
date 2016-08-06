@@ -1,7 +1,8 @@
 angular.module('starter.controllers', ['ionic'])
 
 .controller('AbilitiesCtrl', function($q, $scope, Pkms) {
-    $scope.isSimpleActive = true
+    $scope.isSimpleActive = true;
+    $scope.filter ='';
 
     $q.all([Pkms.getAbilities(), Pkms.getSpeAbilities()]).then(function(data){
       $scope.abilities = data[0].data;
