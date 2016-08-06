@@ -1,8 +1,12 @@
 angular.module('starter.controllers', ['ionic'])
 
-.controller('AbilitiesCtrl', function($q, $scope, Pkms) {
+.controller('AbilitiesCtrl', function($q, $scope, Pkms, $ionicScrollDelegate) {
     $scope.isSimpleActive = true;
     $scope.filter ='';
+
+    $scope.scrollTop = function() {
+      $ionicScrollDelegate.scrollTop();
+    };
 
     $q.all([Pkms.getAbilities(), Pkms.getSpeAbilities()]).then(function(data){
       $scope.abilities = data[0].data;
@@ -21,10 +25,14 @@ angular.module('starter.controllers', ['ionic'])
     })
 })
 
-.controller('PkmsCtrl', function($scope, Pkms) {
+.controller('PkmsCtrl', function($scope, Pkms, $ionicScrollDelegate) {
 
   $scope.filter = 'id';
   $scope.search = '';
+
+  $scope.scrollTop = function() {
+    $ionicScrollDelegate.scrollTop();
+  };
 
   Pkms.getPokemons().success(function(data){
     $scope.pkms = data;
