@@ -18,9 +18,9 @@
 
     <div class="row">
       <div class="col-offset-25 col-50 padding-5 text-center">
-        <button class="button button-small button-outline button-positive" ng-click="filter = '-dps'">DPS</button>
-        <button class="button button-small button-outline button-positive" ng-click="filter = ''">Type</button>
-        <button class="button button-small button-outline button-positive" ng-click="filter = 'nameFr'">Nom</button>
+        <button class="button button-small button-positive" ng-class="{'button-outline' : filter != '-dps'}" ng-click="filter = '-dps'">DPS</button>
+        <button class="button button-small button-outline button-positive" ng-class="{'button-outline' : filter != ''}" ng-click="filter = ''">Type</button>
+        <button class="button button-small button-outline button-positive" ng-class="{'button-outline' : filter != 'nameFr'}" ng-click="filter = 'nameFr'">Nom</button>
       </div>
     </div>
 
