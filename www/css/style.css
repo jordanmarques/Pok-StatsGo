@@ -175,3 +175,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
   border-color: #ef473a;
   color: #ef473a;
 }
+
+.stats-table{
+  margin: 5px auto 10px;
+}

@@ -5,19 +5,17 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{pkm.name}}">
-  <ion-content class="padding">
-
+  <ion-content>
     <div class="row">
-      <div class="col col-30">
-        <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 140px; height: 140px">
-        <p class="text-center">
-          <b class="badge-type" ng-repeat="type in pkm.typesFr" ng-class="[type]">{{type}}</b>
+      <div class="col">
+        <p>
+          <h3 class="text-center">
+            <b>#{{pkm.id}}  {{pkm.nameFr}}</b>
+          </h3>
         </p>
-      </div>
-      <div class="col col-70">
-          <table class="center">
+          <table class="stats-table">
             <tr>
-              <td><img src="img/icon/maxcp.png" style="width: 50px; height: 50px"></td>
+              <td><img src="img/icon/maxcp.png" style="width: 50px; height: 15px"></td>
               <td class="padding-15">{{pkm.cp}}</td>
             </tr>
             <tr>
@@ -33,6 +31,9 @@
               <td class="padding-15">{{pkm.defense}}</td>
             </tr>
           </table>
+        <p class="text-center">
+          <b class="badge-type" ng-repeat="type in pkm.typesFr" ng-class="[type]">{{type}}</b>
+        </p>
       </div>
     </div>
 

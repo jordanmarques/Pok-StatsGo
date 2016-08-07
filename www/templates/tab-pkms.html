@@ -14,7 +14,8 @@
       </div>
       <ion-list>
         <ion-item class="item-avatar item-icon-right" collection-repeat="pkm in pkms | orderBy:filter | filter:{ nameFr: search }" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{pkm.nameFr}}">
-          <img ng-src="img/pokemons/{{pkm.id}}.ico">
+          <img class="icon icon-pokeball">
+          <!-- <img ng-src="img/pokemons/{{pkm.id}}.ico"> -->
           <h2><b>#{{pkm.id}}&nbsp;{{pkm.nameFr}}</b></h2>
           <p>
             <b class="badge-type" ng-repeat="type in pkm.typesFr" ng-class="[type]">{{type}}</b>
