@@ -179,3 +179,21 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 .stats-table{
   margin: 5px auto 10px;
 }
+
+.margin-10{
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.grey{
+  color: #444;
+}
+
+.badge-type-header{
+  padding: 0px 3px 4px 3px;
+}
+
+.margin-left-10{
+  margin-left:10px
+}

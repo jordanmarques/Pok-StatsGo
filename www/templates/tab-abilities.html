@@ -27,11 +27,10 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-
         <ion-list>
-          <ion-item class="padding-0" collection-repeat="ability in allAbilities| orderBy:filter | filter:{ nameFr: search }">
+          <ion-item class="item-avatar item-icon-right"
+                    collection-repeat="ability in allAbilities| orderBy:filter | filter:{ nameFr: search }"
+                    ng-click="openModal(ability)">
             <div class="row">
               <div class="col text-center padding-0">
                 <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
@@ -46,12 +45,13 @@
                     <td class="padding-15"><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.dps}}</span></td>
                   </tr>
                 </table>
+                <i class="icon ion-chevron-right icon-accessory"></i>
               </div>
             </div>
           </ion-item>
         </ion-list>
-      </div>
-    </div>
+
+
   </ion-content>
   <div class="fixed-outside ">
     <i class="ion-ios-arrow-up category-active top-arrow" ng-click="scrollTop()"></i>

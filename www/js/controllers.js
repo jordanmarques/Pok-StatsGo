@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic'])
 
-.controller('AbilitiesCtrl', function($q, $scope, Pkms, $ionicScrollDelegate) {
+.controller('AbilitiesCtrl', function($q, $scope, Pkms, $ionicScrollDelegate, $ionicModal) {
     $scope.isSimpleActive = true;
     $scope.filter ='';
 
@@ -21,8 +21,49 @@ angular.module('starter.controllers', ['ionic'])
       });
 
       $scope.allAbilities = $scope.abilities;
-
     })
+
+    $ionicModal.fromTemplateUrl('modal-template/ability-detail.html', {
+      scope: $scope,
+      animation: 'slide-in-up'
+    }).then(function(modal) {
+      $scope.modal = modal;
+    });
+    $scope.openModal = function(ability) {
+      $scope.modalAbility = ability;
+      computePkmsDps($scope.modalAbility.pokemons);
+      $scope.modal.show();
+    };
+    $scope.closeModal = function() {
+      $scope.modal.hide();
+    };
+    $scope.$on('$destroy', function() {
+      $scope.modal.remove();
+    });
+  
+    function computePkmsDps(pkms){
+      pkms.forEach(function(pkm){
+        
+        var stab = computeSTAB($scope.modalAbility, pkm);
+        
+        var pkmDps = ((($scope.modalAbility.damage * pkm.attaque) / 150+2) * stab) / $scope.modalAbility.duration;
+
+        pkm.abilityDps = Math.round(pkmDps * 100) / 100
+      })
+      
+      
+    }
+
+    function computeSTAB(ability, pkm){
+      var stab = 1;
+  
+      pkm.typesEn.forEach(function(type){
+        if(type == ability.typeEn){
+          stab = 1.5
+        }
+      });
+      return stab;
+    }
 })
 
 .controller('PkmsCtrl', function($scope, Pkms, $ionicScrollDelegate) {
@@ -91,10 +132,4 @@ angular.module('starter.controllers', ['ionic'])
     return stab;
   }
 
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
 });
