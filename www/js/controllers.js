@@ -50,12 +50,10 @@ angular.module('starter.controllers', ['ionic'])
     }
 })
 
-.controller('PkmsCtrl', function($scope, Pkms, $ionicScrollDelegate, ivCalculator) {
+.controller('PkmsCtrl', function($scope, Pkms, $ionicScrollDelegate) {
 
   $scope.filter = 'id';
   $scope.search = '';
-
-  console.log(ivCalculator.evaluate('Ivysaur', 608, 59, 1600));
 
   $scope.scrollTop = function() {
     $ionicScrollDelegate.scrollTop();
@@ -70,10 +68,11 @@ angular.module('starter.controllers', ['ionic'])
 
 })
 
-.controller('PkmDetailCtrl', function($scope, $stateParams, Pkms, DpsUtil) {
+.controller('PkmDetailCtrl', function($scope, $stateParams, Pkms, DpsUtil, ivCalculator) {
   var pkmId = $stateParams.pkmId;
   $scope.pkm = {};
   $scope.pkm.name = "#" + $stateParams.name;
+
 
   Pkms.getPokemons().success(function(data){
     for(var i = 0; i < data.length; i++ ){
@@ -84,6 +83,11 @@ angular.module('starter.controllers', ['ionic'])
       }
     }
   });
+
+  $scope.computeIv = function(name, cp, hp, dust){
+    $scope.ivValues = ivCalculator.evaluate(name , cp, hp, dust);
+    // 608 59 1600 herbizarre
+  };
 
   function computeAbilitiesDpsForPkm(pkm) {
 

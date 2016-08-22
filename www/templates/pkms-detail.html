@@ -5,94 +5,144 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{pkm.name}}">
-  <ion-content class="padding">
+    <ion-content class="padding">
+      <ion-slides>
+        <ion-slide-page>
+          <div class="row">
+            <div class="col col-30">
+              <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 140px; height: 140px">
+              <p class="text-center">
+                <b class="badge-type" ng-repeat="type in pkm.typesFr" ng-class="[type]">{{type}}</b>
+              </p>
+            </div>
+            <div class="col col-70">
+                <table class="center">
+                  <tr>
+                    <td><img src="img/icon/maxcp.png" style="width: 50px; height: 20px"></td>
+                    <td class="padding-15">{{pkm.cp}}</td>
+                  </tr>
+                  <tr>
+                    <td><img src="img/icon/health.png" style="width: 20px; height: 20px"></td>
+                    <td class="padding-15"> {{pkm.health}}</td>
+                  </tr>
+                  <tr>
+                    <td><img src="img/icon/atk.png" style="width: 20px; height: 20px"></td>
+                    <td class="padding-15">{{pkm.attaque}}</td>
+                  </tr>
+                  <tr>
+                    <td><img src="img/icon/defense.png" style="width: 20px; height: 20px"></td>
+                    <td class="padding-15">{{pkm.defense}}</td>
+                  </tr>
+                </table>
+            </div>
+          </div>
 
-    <div class="row">
-      <div class="col col-30">
-        <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 140px; height: 140px">
-        <p class="text-center">
-          <b class="badge-type" ng-repeat="type in pkm.typesFr" ng-class="[type]">{{type}}</b>
-        </p>
-      </div>
-      <div class="col col-70">
-          <table class="center">
-            <tr>
-              <td><img src="img/icon/maxcp.png" style="width: 50px; height: 20px"></td>
-              <td class="padding-15">{{pkm.cp}}</td>
-            </tr>
-            <tr>
-              <td><img src="img/icon/health.png" style="width: 20px; height: 20px"></td>
-              <td class="padding-15"> {{pkm.health}}</td>
-            </tr>
-            <tr>
-              <td><img src="img/icon/atk.png" style="width: 20px; height: 20px"></td>
-              <td class="padding-15">{{pkm.attaque}}</td>
-            </tr>
-            <tr>
-              <td><img src="img/icon/defense.png" style="width: 20px; height: 20px"></td>
-              <td class="padding-15">{{pkm.defense}}</td>
-            </tr>
-          </table>
-      </div>
-    </div>
+          <div class="row">
+            <div class="col col-50">
+                <h5 class="text-center">Capacité(s):</h5>
+                  <ion-list>
+                    <ion-item ng-repeat="ability in pkm.abilities">
+                      <div class="row">
+                        <div class="col text-center">
+                          <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <ul>
+                            <li><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.damage}}</span></li>
+                            <li><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{ability.duration}} s</span></li>
+                            <li><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.dps}}</span></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col text-center">
+                          <b>DPS de {{pkm.nameFr}}&nbsp;{{ability.pkmDps}}</b>
+                        </div>
+                      </div>
 
-    <div class="row">
-      <div class="col col-50">
-          <h5 class="text-center">Capacité(s):</h5>
-            <ion-list>
-              <ion-item ng-repeat="ability in pkm.abilities">
-                <div class="row">
-                  <div class="col text-center">
-                    <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col">
-                    <ul>
-                      <li><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.damage}}</span></li>
-                      <li><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{ability.duration}} s</span></li>
-                      <li><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.dps}}</span></li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col text-center">
-                    <b>DPS de {{pkm.nameFr}}&nbsp;{{ability.pkmDps}}</b>
-                  </div>
-                </div>
+                    </ion-item>
+                  </ion-list>
+            </div>
 
-              </ion-item>
-            </ion-list>
-      </div>
+             <div class="col col-50">
+                <h5 class="text-center">Capacité(s)&nbsp;Spécial:</h5>
+                <ion-list>
+                  <ion-item ng-repeat="speAbility in pkm.speAbilities">
+                    <div class="row">
+                      <div class="col text-center">
+                        <b>{{speAbility.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                        <ul>
+                          <li><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.damage}}</span></li>
+                          <li><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{speAbility.duration}} s</span></li>
+                          <li><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.dps}}</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col text-center">
+                        <b>DPS de {{pkm.nameFr}}&nbsp;{{speAbility.pkmDps}}</b>
+                      </div>
+                    </div>
+                  </ion-item>
+                </ion-list>
 
-       <div class="col col-50">
-          <h5 class="text-center">Capacité(s)&nbsp;Spécial:</h5>
-          <ion-list>
-            <ion-item ng-repeat="speAbility in pkm.speAbilities">
-              <div class="row">
-                <div class="col text-center">
-                  <b>{{speAbility.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col">
-                  <ul>
-                    <li><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.damage}}</span></li>
-                    <li><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{speAbility.duration}} s</span></li>
-                    <li><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{speAbility.dps}}</span></li>
-                  </ul>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col text-center">
-                  <b>DPS de {{pkm.nameFr}}&nbsp;{{speAbility.pkmDps}}</b>
-                </div>
-              </div>
-            </ion-item>
-          </ion-list>
+            </div>
+          </div>
+        </ion-slide-page>
+        <ion-slide-page>
 
-      </div>
-    </div>
 
+          <div class="row">
+            <h2>Stats de mon {{ pkm.nameFr }} </h2>
+          </div>
+
+          <div>
+            <label class="item item-input">
+              <span class="input-label">CP</span>
+              <input type="number" ng-model="cp">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">HP</span>
+              <input type="number" ng-model="hp">
+            </label>
+            <label class="item item-input">
+              <span class="input-label">Poussière pour UP</span>
+              <input type="number" ng-model="dust">
+            </label>
+          </div>
+
+          <div class="margin-top-10 row">
+            <button class="button button-small button-assertive button-outline text-center"
+                    ng-click="computeIv(pkm.nameEn, cp, hp, dust)">
+              Calculer
+            </button>
+          </div>
+
+
+          <div id="ivTable" ng-show="ivValues.ivs">
+            <div class="row">
+              <div class="col">Attaque IV</div>
+              <div class="col">Defense IV</div>
+              <div class="col">Stamina IV</div>
+              <div class="col">Lvl</div>
+              <div class="col">Qualité</div>
+            </div>
+            <div class="row" ng-repeat="iv in ivValues">
+              <div class="col">{{ iv.attackIV }}</div>
+              <div class="col">{{ iv.defenseIV }}</div>
+              <div class="col">{{ iv.staminaIV }}</div>
+              <div class="col">{{ iv.level }}</div>
+              <div class="col">{{ iv.perfection * 100 }}%</div>
+            </div>
+          </div>
+
+        </ion-slide-page>
+      </ion-slides>
   </ion-content>
 </ion-view>
