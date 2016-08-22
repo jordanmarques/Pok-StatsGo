@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic'])
 
-.controller('AbilitiesCtrl', function($q, $scope, Pkms, $ionicScrollDelegate, $ionicModal) {
+.controller('AbilitiesCtrl', function($q, $scope, Pkms, $ionicScrollDelegate, $ionicModal, DpsUtil) {
     $scope.isSimpleActive = true;
     $scope.filter ='';
 
@@ -21,7 +21,7 @@ angular.module('starter.controllers', ['ionic'])
       });
 
       $scope.allAbilities = $scope.abilities;
-    })
+    });
 
     $ionicModal.fromTemplateUrl('modal-template/ability-detail.html', {
       scope: $scope,
@@ -40,29 +40,13 @@ angular.module('starter.controllers', ['ionic'])
     $scope.$on('$destroy', function() {
       $scope.modal.remove();
     });
-  
+
     function computePkmsDps(pkms){
       pkms.forEach(function(pkm){
-        
-        var stab = computeSTAB($scope.modalAbility, pkm);
-        
-        var pkmDps = ((($scope.modalAbility.damage * pkm.attaque) / 150+2) * stab) / $scope.modalAbility.duration;
-
-        pkm.abilityDps = Math.round(pkmDps * 100) / 100
+        pkm.abilityDps = DpsUtil.computeAbilityDpsForPkm($scope.modalAbility, pkm);
       })
-      
-      
-    }
 
-    function computeSTAB(ability, pkm){
-      var stab = 1;
-  
-      pkm.typesEn.forEach(function(type){
-        if(type == ability.typeEn){
-          stab = 1.5
-        }
-      });
-      return stab;
+
     }
 })
 
@@ -84,7 +68,7 @@ angular.module('starter.controllers', ['ionic'])
 
 })
 
-.controller('PkmDetailCtrl', function($scope, $stateParams, Pkms) {
+.controller('PkmDetailCtrl', function($scope, $stateParams, Pkms, DpsUtil) {
   var pkmId = $stateParams.pkmId;
   $scope.pkm = {};
   $scope.pkm.name = "#" + $stateParams.name;
@@ -102,34 +86,12 @@ angular.module('starter.controllers', ['ionic'])
   function computeAbilitiesDpsForPkm(pkm) {
 
     pkm.abilities.forEach(function(ability){
-      computeAbilityDpsForPkm(ability, pkm)
+      ability.pkmDps = DpsUtil.computeAbilityDpsForPkm(ability, pkm)
     });
 
     pkm.speAbilities.forEach(function(speAbility){
-      computeAbilityDpsForPkm(speAbility, pkm)
+      speAbility.pkmDps = DpsUtil.computeAbilityDpsForPkm(speAbility, pkm)
     });
-  }
-
-  function computeAbilityDpsForPkm(ability, pkm){
-
-    var stab = computeSTAB(ability, pkm);
-
-    var pkmDps = (((ability.damage * pkm.attaque) / 150+2) * stab) / ability.duration
-
-    ability.pkmDps = Math.round(pkmDps * 100) / 100
-
-  }
-
-  function computeSTAB(ability, pkm){
-    var stab = 1;
-
-    pkm.typesEn.forEach(function(type){
-      if(type == ability.typeEn){
-        stab = 1.5
-      }
-    });
-
-    return stab;
   }
 
 });
