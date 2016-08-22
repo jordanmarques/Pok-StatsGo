@@ -50,10 +50,12 @@ angular.module('starter.controllers', ['ionic'])
     }
 })
 
-.controller('PkmsCtrl', function($scope, Pkms, $ionicScrollDelegate) {
+.controller('PkmsCtrl', function($scope, Pkms, $ionicScrollDelegate, ivCalculator) {
 
   $scope.filter = 'id';
   $scope.search = '';
+
+  console.log(ivCalculator.evaluate('Ivysaur', 608, 59, 1600));
 
   $scope.scrollTop = function() {
     $ionicScrollDelegate.scrollTop();
