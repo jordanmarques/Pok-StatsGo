@@ -22,7 +22,7 @@ angular.module('starter.abilitiesctrl', ['ionic'])
     $scope.allAbilities = $scope.abilities;
 
 
-    $ionicModal.fromTemplateUrl('modal-template/ability-detail.html', {
+    $ionicModal.fromTemplateUrl('templates/modal-template/ability-detail.html', {
       scope: $scope,
       animation: 'slide-in-up'
     }).then(function(modal) {
