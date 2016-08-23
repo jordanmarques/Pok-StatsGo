@@ -15,10 +15,6 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
       }
     }
 
-    $scope.cp=608;
-    $scope.hp=59;
-    $scope.dust=1600;
-
     $scope.computeIv = function(name, cp, hp, dust){
       $scope.ivsErrors = false;
 

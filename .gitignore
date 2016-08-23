@@ -20,6 +20,9 @@ log/
 target/
 
 # Config
+/resources/android
+/resources/ios
+/resources/wp8
 /build
 /local.properties
 .gradle
