@@ -201,3 +201,8 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 .margin-top-10{
   margin-top: 10px;
 }
+
+.scroll-content {
+  overflow-y: auto !important;
+}
+

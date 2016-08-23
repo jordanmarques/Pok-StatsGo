@@ -1718,17 +1718,9 @@ angular.module('starter.services', [])
 
   function determinePerfection(ivs) {
     const perfection = (ivs.attackIV + ivs.defenseIV + ivs.staminaIV) / 45
-    return Math.floor(perfection * 100) / 100;
+    return Math.round(perfection * 100);
   }
-
-  /**
-   * Evaluate a given pokemon
-   * @param {string|number} Pokemon Query (e.g. "2" or "Ivysaur")
-   * @param {number} CP
-   * @param {number} HP
-   * @param {number} dustCost Dust cost of upgrading pokemon
-   * @param {bool} neverUpgraded If you've never powered it up, fewer potential levels
-   */
+  
   service.evaluate = function(pokemonQuery, cp, hp, dustCost, neverUpgraded) {
     const pokemon = pokedex.pokemonByName(pokemonQuery) || pokedex.pokemonById(pokemonQuery);
 
@@ -1746,14 +1738,10 @@ angular.module('starter.services', [])
         return 0;
       }
       return a.perfection > b.perfection ? 1 : -1;
-    })
+    });
 
-    var pokeSnapshot = {
-      ivs : potentialIVs
-    };
-
-    return pokeSnapshot;
-  }
+    return potentialIVs;
+  };
 
   function determinePossibleIVs (pokemon, cp, hp, dust, neverUpgraded) {
     var potentialLevels = levelUpData.levelsByDust(dust);
@@ -1803,26 +1791,6 @@ angular.module('starter.services', [])
     }
 
     return potentialIVs;
-  }
-
-  /**
-   * Determine possible IVs for a given pokemon
-   * @param {string|number} Pokemon Query (e.g. "2" or "Ivysaur")
-   * @param {number} CP
-   * @param {number} HP
-   * @param {number} dustCost Dust cost of upgrading pokemon
-   * @param {bool} neverUpgraded If you've never powered it up, fewer potential levels
-   */
-  function possibleIVs (pokemonQuery, cp, hp, dust, neverUpgraded) {
-    const pokemon = pokedex.pokemonByName(pokemonQuery) || pokedex.pokemonById(pokemonQuery);
-    if (!pokemon) {
-      return {error:`Could not find pokemon: ${pokemonQuery}`};
-    }
-    const ivs = determinePossibleIVs(pokemon, cp, hp, dustCost, neverUpgraded);
-    if (!ivs.length) {
-      return {error: `Could not find any IVs matching given information`};
-    }
-    return {ivs};
   }
 
   return service;

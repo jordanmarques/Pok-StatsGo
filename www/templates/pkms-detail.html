@@ -7,7 +7,7 @@
 <ion-view view-title="{{pkm.name}}">
     <ion-content class="padding">
       <ion-slides>
-        <ion-slide-page>
+        <ion-slide-page class="scroll-content">
           <div class="row">
             <div class="col col-30">
               <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 140px; height: 140px">
@@ -95,7 +95,7 @@
             </div>
           </div>
         </ion-slide-page>
-        <ion-slide-page>
+        <ion-slide-page class="padding">
 
 
           <div class="row">
@@ -103,29 +103,33 @@
           </div>
 
           <div>
-            <label class="item item-input">
-              <span class="input-label">CP</span>
-              <input type="number" ng-model="cp">
-            </label>
-            <label class="item item-input">
-              <span class="input-label">HP</span>
-              <input type="number" ng-model="hp">
-            </label>
-            <label class="item item-input">
-              <span class="input-label">Poussière pour UP</span>
-              <input type="number" ng-model="dust">
-            </label>
+            <form name="ivForm" novalidate="" ng-submit="computeIv(pkm.nameEn, cp, hp, dust)">
+              <label class="item item-input">
+                <span class="input-label">CP</span>
+                <input type="number" ng-model="cp" required>
+              </label>
+              <label class="item item-input">
+                <span class="input-label">HP</span>
+                <input type="number" ng-model="hp" required>
+              </label>
+              <label class="item item-input">
+                <span class="input-label">Poussière pour UP</span>
+                <input type="number" ng-model="dust" required>
+              </label>
+
+              <div class="margin-top-10 row">
+                <button class="button button-small button-assertive button-outline text-center"
+                        type="submit"
+                        ng-disabled="ivForm.$invalid"> Calculer </button>
+              </div>
+            </form>
           </div>
 
-          <div class="margin-top-10 row">
-            <button class="button button-small button-assertive button-outline text-center"
-                    ng-click="computeIv(pkm.nameEn, cp, hp, dust)">
-              Calculer
-            </button>
+          <div ng-show="ivs.length == 0">
+            <p>Oups, impossible de calculer les Ivs de ton Pokémon...</p>
+            <p>Il doit y avoir une erreur dans ses statistiques</p>
           </div>
-
-
-          <div id="ivTable" ng-show="ivValues.ivs">
+          <div id="ivTable" ng-show="ivs.length != 0 && ivs">
             <div class="row">
               <div class="col">Attaque IV</div>
               <div class="col">Defense IV</div>
@@ -133,12 +137,12 @@
               <div class="col">Lvl</div>
               <div class="col">Qualité</div>
             </div>
-            <div class="row" ng-repeat="iv in ivValues">
+            <div class="row" ng-repeat="iv in ivs">
               <div class="col">{{ iv.attackIV }}</div>
               <div class="col">{{ iv.defenseIV }}</div>
               <div class="col">{{ iv.staminaIV }}</div>
               <div class="col">{{ iv.level }}</div>
-              <div class="col">{{ iv.perfection * 100 }}%</div>
+              <div class="col">{{ iv.perfection }}%</div>
             </div>
           </div>
 

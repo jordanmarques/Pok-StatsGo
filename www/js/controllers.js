@@ -84,9 +84,15 @@ angular.module('starter.controllers', ['ionic'])
     }
   });
 
+  $scope.cp=608;
+  $scope.hp=59;
+  $scope.dust=1600;
+  
   $scope.computeIv = function(name, cp, hp, dust){
-    $scope.ivValues = ivCalculator.evaluate(name , cp, hp, dust);
+        
+    $scope.ivs = ivCalculator.evaluate(name, cp, hp, dust);
     // 608 59 1600 herbizarre
+    
   };
 
   function computeAbilitiesDpsForPkm(pkm) {
