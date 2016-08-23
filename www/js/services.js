@@ -1,22 +1,5 @@
 angular.module('starter.services', [])
-
-.factory('Pkms', function($http) {
-
-  return {
-
-    getPokemons: function() {
-      return $http.get('json/pokemons.json');
-    },
-    getAbilities: function(){
-      return $http.get('json/abilities.json');
-    },
-    getSpeAbilities: function(){
-      return $http.get('json/speAbilities.json');
-    }
-
-  };
-})
-
+  
 .factory('DpsUtil', function () {
 
   service = {};
@@ -1720,7 +1703,7 @@ angular.module('starter.services', [])
     const perfection = (ivs.attackIV + ivs.defenseIV + ivs.staminaIV) / 45
     return Math.round(perfection * 100);
   }
-  
+
   service.evaluate = function(pokemonQuery, cp, hp, dustCost, neverUpgraded) {
     const pokemon = pokedex.pokemonByName(pokemonQuery) || pokedex.pokemonById(pokemonQuery);
 

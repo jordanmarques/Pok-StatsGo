@@ -206,3 +206,13 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
   overflow-y: auto !important;
 }
 
+#tableIvHead .col{
+  border-bottom: solid 1px #b0b0b0;
+  margin-bottom: 10px;
+}
+
+#computeIvBtn{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width : 100%;
+}

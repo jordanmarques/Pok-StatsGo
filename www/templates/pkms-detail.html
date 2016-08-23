@@ -98,8 +98,10 @@
         <ion-slide-page class="padding">
 
 
-          <div class="row">
-            <h2>Stats de mon {{ pkm.nameFr }} </h2>
+          <div class="row text-center">
+            <div class="col">
+              <h2>Stats de mon {{ pkm.nameFr }} </h2>
+            </div>
           </div>
 
           <div>
@@ -108,36 +110,42 @@
                 <span class="input-label">CP</span>
                 <input type="number" ng-model="cp" required>
               </label>
+
               <label class="item item-input">
                 <span class="input-label">HP</span>
                 <input type="number" ng-model="hp" required>
               </label>
+
               <label class="item item-input">
-                <span class="input-label">Poussière pour UP</span>
+                <span class="input-label">Poussières pour UP</span>
                 <input type="number" ng-model="dust" required>
               </label>
 
-              <div class="margin-top-10 row">
-                <button class="button button-small button-assertive button-outline text-center"
-                        type="submit"
-                        ng-disabled="ivForm.$invalid"> Calculer </button>
-              </div>
+              <button id="computeIvBtn"
+                      class="button  button-assertive button-small button-outline text-center"
+                      type="submit"
+                      ng-disabled="ivForm.$invalid"> Calculer
+              </button>
             </form>
           </div>
 
-          <div ng-show="ivs.length == 0">
+          <div class="text-center" ng-show="ivs.length == 0 || ivsErrors">
             <p>Oups, impossible de calculer les Ivs de ton Pokémon...</p>
-            <p>Il doit y avoir une erreur dans ses statistiques</p>
+            <p>Il doit y avoir une erreur dans ses statistiques.</p>
+            <img class="center" src="img/error-pika.jpg">
           </div>
-          <div id="ivTable" ng-show="ivs.length != 0 && ivs">
+          <div id="ivTable" ng-show="ivs.length != 0 && ivs && !ivsErrors">
             <div class="row">
+              <h4>Résultat(s) Possible:</h4>
+            </div>
+            <div id="tableIvHead" class="row text-center">
               <div class="col">Attaque IV</div>
               <div class="col">Defense IV</div>
               <div class="col">Stamina IV</div>
               <div class="col">Lvl</div>
-              <div class="col">Qualité</div>
+              <div class="col">Perfection</div>
             </div>
-            <div class="row" ng-repeat="iv in ivs">
+            <div class="row text-center" ng-repeat="iv in ivs">
               <div class="col">{{ iv.attackIV }}</div>
               <div class="col">{{ iv.defenseIV }}</div>
               <div class="col">{{ iv.staminaIV }}</div>

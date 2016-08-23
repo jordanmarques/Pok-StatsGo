@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['ionic'])
 
-.controller('AbilitiesCtrl', function($q, $scope, Pkms, $ionicScrollDelegate, $ionicModal, DpsUtil) {
+.controller('AbilitiesCtrl', function($q, $scope, SpeAbility, Ability, $ionicScrollDelegate, $ionicModal, DpsUtil) {
     $scope.isSimpleActive = true;
     $scope.filter ='';
 
@@ -8,20 +8,19 @@ angular.module('starter.controllers', ['ionic'])
       $ionicScrollDelegate.scrollTop();
     };
 
-    $q.all([Pkms.getAbilities(), Pkms.getSpeAbilities()]).then(function(data){
-      $scope.abilities = data[0].data;
-      $scope.speAbilities = data[1].data;
+    $scope.abilities = Ability.getAbilities();
+    $scope.speAbilities = SpeAbility.getSpeAbilities();
 
-      $scope.abilities.forEach(function(ability){
-        ability.dps = parseFloat(ability.dps);
-      });
-
-      $scope.speAbilities.forEach(function(speAbility){
-        speAbility.dps = parseFloat(speAbility.dps);
-      });
-
-      $scope.allAbilities = $scope.abilities;
+    $scope.abilities.forEach(function(ability){
+      ability.dps = parseFloat(ability.dps);
     });
+
+    $scope.speAbilities.forEach(function(speAbility){
+      speAbility.dps = parseFloat(speAbility.dps);
+    });
+
+    $scope.allAbilities = $scope.abilities;
+    
 
     $ionicModal.fromTemplateUrl('modal-template/ability-detail.html', {
       scope: $scope,
@@ -59,11 +58,9 @@ angular.module('starter.controllers', ['ionic'])
     $ionicScrollDelegate.scrollTop();
   };
 
-  Pkms.getPokemons().success(function(data){
-    $scope.pkms = data;
-    $scope.pkms.forEach(function(pkm){
-      pkm.cp = parseInt(pkm.cp)
-    })
+  $scope.pkms = Pkms.getPokemons();
+  $scope.pkms.forEach(function(pkm){
+    pkm.cp = parseInt(pkm.cp)
   });
 
 })
@@ -74,25 +71,28 @@ angular.module('starter.controllers', ['ionic'])
   $scope.pkm.name = "#" + $stateParams.name;
 
 
-  Pkms.getPokemons().success(function(data){
-    for(var i = 0; i < data.length; i++ ){
-      if(data[i].id == pkmId){
-        $scope.pkm = data[i];
-        computeAbilitiesDpsForPkm($scope.pkm);
-        break;
-      }
+  var data = Pkms.getPokemons();
+  for(var i = 0; i < data.length; i++ ){
+    if(data[i].id == pkmId){
+      $scope.pkm = data[i];
+      computeAbilitiesDpsForPkm($scope.pkm);
+      break;
     }
-  });
+  }
 
-  $scope.cp=608;
-  $scope.hp=59;
-  $scope.dust=1600;
-  
+  // $scope.cp=608;
+  // $scope.hp=59;
+  // $scope.dust=1600;
+
   $scope.computeIv = function(name, cp, hp, dust){
-        
-    $scope.ivs = ivCalculator.evaluate(name, cp, hp, dust);
-    // 608 59 1600 herbizarre
-    
+    $scope.ivsErrors = false;
+
+    try{
+      $scope.ivs = ivCalculator.evaluate(name, cp, hp, dust);
+    } catch(e) {
+      $scope.ivsErrors = true;
+    }
+
   };
 
   function computeAbilitiesDpsForPkm(pkm) {
