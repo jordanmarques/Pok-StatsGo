@@ -80,18 +80,18 @@ angular.module('starter.controllers', ['ionic'])
     }
   }
 
-  // $scope.cp=608;
-  // $scope.hp=59;
-  // $scope.dust=1600;
+  $scope.cp=608;
+  $scope.hp=59;
+  $scope.dust=1600;
 
   $scope.computeIv = function(name, cp, hp, dust){
-    $scope.ivsErrors = false;
+    // $scope.ivsErrors = false;
 
-    try{
+    // try{
       $scope.ivs = ivCalculator.evaluate(name, cp, hp, dust);
-    } catch(e) {
-      $scope.ivsErrors = true;
-    }
+    // } catch(e) {
+    //   $scope.ivsErrors = true;
+    // }
 
   };
 
