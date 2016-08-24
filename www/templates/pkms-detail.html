@@ -103,32 +103,38 @@
 
           <div class="row text-center">
             <div class="col">
-              <h3>Calculateur d'IV </h3>
-              <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 60px; height: 60px">
+              <h3 class="pixelated-text">Calculateur d'IV </h3>
+              <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 80px; height: 80px">
             </div>
           </div>
 
           <div>
             <form name="ivForm" novalidate="" ng-submit="computeIv(pkm.nameEn, cp, hp, dust)">
               <label class="item item-input">
-                <span class="input-label">CP</span>
+                <img src="img/icon/cp.png" style="width: 40px; height: 40px">
+                <span class="input-label pixelated-text">&nbsp;CP</span>
                 <input type="number" ng-model="cp" required>
               </label>
 
               <label class="item item-input">
-                <span class="input-label">HP</span>
+                <span class="input-label pixelated-text">
+                  <img src="img/icon/health.png" style="width: 30px; height: 30px; margin-left: 4px; margin-right: 5px">
+                  <span>&nbsp;HP</span>
+                </span>
                 <input type="number" ng-model="hp" required>
               </label>
 
               <label class="item item-input">
-                <span class="input-label">Poussières pour UP</span>
+                <img src="img/icon/dust.png" style="width: 40px; height: 40px; margin-left: -2px; margin-right: 5px;">
+                <span class="input-label pixelated-text">Poussières pour UP</span>
                 <input type="number" ng-model="dust" required>
               </label>
 
               <button id="computeIvBtn"
                       class="button  button-assertive button-small button-outline text-center"
                       type="submit"
-                      ng-disabled="ivForm.$invalid"> Calculer
+                      ng-disabled="ivForm.$invalid">
+                <span class="pixelated-text">Calculer</span>
               </button>
             </form>
           </div>

@@ -263,3 +263,12 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 .popup-body{
   text-align: center;
 }
+
+.pixelated-text{
+  font-family: alterebropixelfont;
+  font-size: 300%;
+}
+
+.label.item.item-input{
+  padding:0;
+}

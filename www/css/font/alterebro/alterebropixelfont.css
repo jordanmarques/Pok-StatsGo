@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'alterebropixelfont';
+    src: url('fonts/alterebropixelfont.eot');
+    src: url('fonts/alterebropixelfont.eot') format('embedded-opentype'),
+         url('fonts/alterebropixelfont.woff2') format('woff2'),
+         url('fonts/alterebropixelfont.woff') format('woff'),
+         url('fonts/alterebropixelfont.ttf') format('truetype'),
+         url('fonts/alterebropixelfont.svg#alterebropixelfont') format('svg');
+}
