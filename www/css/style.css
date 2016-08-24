@@ -103,15 +103,15 @@
 }
 
 .low-iv{
-  background-color: #ef473a;;
+  background-color: #e74c3c;;
 }
 
 .mid-iv{
-  background-color: rgba(239, 192, 44, 0.98);
+  background-color: #f4e013;
 }
 
 .good-iv{
-  background-color: darkgreen;
+  background-color: #2ecc71;
 }
 
 .fs-70{
@@ -272,3 +272,26 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 .label.item.item-input{
   padding:0;
 }
+
+.ability-font-size{
+  font-size: 90%;
+}
+
+
+div#tobecovered{
+  position: relative;
+}
+
+.under{
+  margin-left: 20px;
+  position: absolute;
+}
+
+div#tobecovered img.cover{
+  position: absolute;
+  /* position in top left of #tobecovered */
+  top: 0; /* top of #tobecovered */
+  left: 0; /* left of #tobecovered */
+}
+
+

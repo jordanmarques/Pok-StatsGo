@@ -32,17 +32,17 @@
                     collection-repeat="ability in allAbilities| orderBy:filter | filter:{ nameFr: search }"
                     ng-click="openModal(ability)">
             <div class="row">
-              <div class="col text-center padding-0">
+              <div class="col text-center padding-0" style="margin-left:20px; font-size: 120%">
                 <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
               </div>
             </div>
             <div class="row">
               <div class="col">
-                <table class="center">
+                <table class="center" style="font-size: 150%">
                   <tr>
                     <td><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.damage}}</span></td>
                     <td class="padding-15"><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{ability.duration}} s</span></>
-                    <td class="padding-15"><img src="img/icon/dps.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.dps}}</span></td>
+                    <td class="padding-15"><img src="img/icon/dps.png" style="width: 30px; height: 30px"><span class="padding-15">{{ability.dps}}</span></td>
                   </tr>
                 </table>
                 <i class="icon ion-chevron-right icon-accessory"></i>
