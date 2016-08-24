@@ -1,6 +1,6 @@
 angular.module('starter.pkmdetailctrl', ['ionic'])
 
-  .controller('PkmDetailCtrl', function($scope, $stateParams, Pkms, DpsUtil, ivCalculator) {
+  .controller('PkmDetailCtrl', function($scope, $stateParams, Pkms, DpsUtil, ivCalculator, $ionicPopup) {
     var pkmId = $stateParams.pkmId;
     $scope.pkm = {};
     $scope.pkm.name = "#" + $stateParams.name;
@@ -24,6 +24,15 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
         $scope.ivsErrors = true;
       }
 
+    };
+
+    $scope.showAlert = function() {
+      var alertPopup = $ionicPopup.alert({
+        title: 'Information',
+        template: 'Ce calculateur permet de calculer les Iv de vos Pokémons.\n' +
+        'Il suffit simplement de renseigner les valeurs de votre pokémon dans les champs ci-dessous',
+        okType:'button  button-assertive button-outline'
+      });
     };
 
     function computeAbilitiesDpsForPkm(pkm) {

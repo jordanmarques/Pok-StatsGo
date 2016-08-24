@@ -38,7 +38,7 @@
           </div>
 
           <div class="row">
-            <div class="col col-50">
+            <div class="col col-50 padding-0">
                 <h5 class="text-center">Capacité(s):</h5>
                   <ion-list>
                     <ion-item ng-repeat="ability in pkm.abilities">
@@ -66,7 +66,7 @@
                   </ion-list>
             </div>
 
-             <div class="col col-50">
+             <div class="col col-50 padding-0">
                 <h5 class="text-center">Capacité(s)&nbsp;Spécial:</h5>
                 <ion-list>
                   <ion-item ng-repeat="speAbility in pkm.speAbilities">
@@ -97,10 +97,14 @@
         </ion-slide-page>
         <ion-slide-page class="padding scroll-content">
 
+          <div class="fixed-outside-top">
+            <i id ="info-btn" class="ion-ios-information-outline" ng-click="showAlert()"></i>
+          </div>
 
           <div class="row text-center">
             <div class="col">
-              <h2>Stats de mon {{ pkm.nameFr }} </h2>
+              <h3>Calculateur d'IV </h3>
+              <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 60px; height: 60px">
             </div>
           </div>
 
@@ -142,15 +146,13 @@
               <div class="col">Attaque IV</div>
               <div class="col">Defense IV</div>
               <div class="col">Stamina IV</div>
-              <div class="col">Lvl</div>
               <div class="col">Perfection</div>
             </div>
-            <div class="row text-center" ng-repeat="iv in ivs">
+            <div class="row text-center" ng-repeat="iv in ivs | orderBy: '-perfection'">
               <div class="col">{{ iv.attaqueIV }}</div>
               <div class="col">{{ iv.defenseIV }}</div>
               <div class="col">{{ iv.healthIV }}</div>
-              <div class="col">{{ iv.level }}</div>
-              <div class="col">{{ iv.perfection }}%</div>
+              <div class="col" iv-badger value="iv.perfection">{{ iv.perfection }}%</div>
             </div>
           </div>
 

@@ -14,6 +14,7 @@ angular.module('starter', ['ionic',
                             'starter.abilitiesctrl',
                             'starter.pkmsctrl',
                             'starter.levels',
+                            'starter.ivBadger',
                             'starter.pkmdetailctrl'])
 
 .run(function($ionicPlatform) {
