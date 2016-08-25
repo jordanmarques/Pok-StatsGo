@@ -5,12 +5,12 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in ivService.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 
-                            'starter.ivservices', 
-                            'starter.dpsservices', 
-                            'starter.pokemons' , 
-                            'starter.speAbilities' , 
-                            'starter.abilities', 
+angular.module('starter', ['ionic',
+                            'starter.ivservices',
+                            'starter.dpsservices',
+                            'starter.pokemons' ,
+                            'starter.speAbilities' ,
+                            'starter.abilities',
                             'starter.abilitiesctrl',
                             'starter.pkmsctrl',
                             'starter.levels',
@@ -21,6 +21,9 @@ angular.module('starter', ['ionic',
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
+
+    ionic.keyboard.disable();
+    
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -35,11 +38,6 @@ angular.module('starter', ['ionic',
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
 
-  // Ionic uses AngularUI Router which uses the concept of states
-  // Learn more here: https://github.com/angular-ui/ui-router
-  // Set up the various states which the app can be in.
-  // Each state's controller can be found in controllers.js
-  //$ionicConfigProvider.views.transition('none');
   $stateProvider
   // setup an abstract state for the tabs directive
     .state('tab', {
