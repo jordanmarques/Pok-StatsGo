@@ -18,7 +18,7 @@
             <div class="col col-70">
                 <table class="center">
                   <tr>
-                    <td><img src="img/icon/maxcp.png" style="width: 50px; height: 20px"></td>
+                    <td><img src="img/icon/maxcp.png" style="width: 50px; height: 18px"></td>
                     <td class="padding-15">{{pkm.cp}}</td>
                   </tr>
                   <tr>
@@ -58,7 +58,7 @@
                       </div>
                       <div class="row">
                         <div class="col text-center">
-                          <b>DPS de {{pkm.nameFr}}&nbsp;{{ability.pkmDps}}</b>
+                          <b style="font-size: 90%">DPS de {{pkm.nameFr}}&nbsp;{{ability.pkmDps}}</b>
                         </div>
                       </div>
 
@@ -86,7 +86,7 @@
                     </div>
                     <div class="row">
                       <div class="col text-center">
-                        <b>DPS de {{pkm.nameFr}}&nbsp;{{speAbility.pkmDps}}</b>
+                        <b style="font-size: 90%">DPS de {{pkm.nameFr}}&nbsp;{{speAbility.pkmDps}}</b>
                       </div>
                     </div>
                   </ion-item>
@@ -142,25 +142,53 @@
           </div>
 
           <div class="text-center" ng-show="ivs.length == 0 || ivsErrors">
-            <p>Oups, impossible de calculer les Ivs de ton Pokémon...</p>
+            <p>Oups, impossible de calculer les Iv de ton Pokémon...</p>
             <p>Il doit y avoir une erreur dans ses statistiques.</p>
             <img class="center" src="img/error-pika.jpg">
           </div>
+
           <div id="ivTable" ng-show="ivs.length != 0 && ivs && !ivsErrors">
-            <div class="row">
-              <h4 class="grey">Résultat(s) Possible:</h4>
+
+            <div>
+              <div class="col">
+                <h4 class="grey">Analyse:</h4>
+              </div>
+
+              <div class="col ">
+                <span class="margin-0 grey" ng-hide="perfection.min == perfection.max">
+                  <p>
+                    <span>Les Iv sont comprise entre:&nbsp;</span>
+                    <b>{{ perfection.min }}%</b> et <b>{{ perfection.max }}%</b>
+                  </p>
+                  <p>
+                    <div iv-analyser iv-average="perfection.average"></div>
+                  </p>
+                </span>
+
+                <span class="margin-0 grey" ng-show="perfection.min == perfection.max">
+                  <span>L'Iv est de:&nbsp;</span>
+                  <b>{{ perfection.min }}%</b>
+                </span>
+              </div>
             </div>
-            <div id="tableIvHead" class="row text-center grey">
-              <div class="col">Attaque IV</div>
-              <div class="col">Defense IV</div>
-              <div class="col">Stamina IV</div>
-              <div class="col">Perfection</div>
-            </div>
-            <div class="row text-center" ng-repeat="iv in ivs | orderBy: '-perfection'">
-              <div class="col">{{ iv.attaqueIV }}</div>
-              <div class="col">{{ iv.defenseIV }}</div>
-              <div class="col">{{ iv.healthIV }}</div>
-              <div class="col" iv-badger value="iv.perfection">{{ iv.perfection }}%</div>
+
+            <div>
+              <div class="col">
+                <h4 class="grey">Résultat(s) Possible:</h4>
+              </div>
+
+              <div id="tableIvHead" class="row text-center grey">
+                <div class="col">Attaque IV</div>
+                <div class="col">Defense IV</div>
+                <div class="col">Stamina IV</div>
+                <div class="col">Perfection</div>
+              </div>
+              <div class="row text-center" ng-repeat="iv in ivs | orderBy: '-perfection'">
+                <div class="col">{{ iv.attaqueIV }}</div>
+                <div class="col">{{ iv.defenseIV }}</div>
+                <div class="col">{{ iv.healthIV }}</div>
+                <div class="col" iv-badger value="iv.perfection">{{ iv.perfection }}%</div>
+              </div>
             </div>
           </div>
 

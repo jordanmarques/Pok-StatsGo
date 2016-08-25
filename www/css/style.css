@@ -294,4 +294,6 @@ div#tobecovered img.cover{
   left: 0; /* left of #tobecovered */
 }
 
-
+.margin-0{
+  margin : 0;
+}
