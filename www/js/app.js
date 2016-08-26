@@ -38,7 +38,7 @@ angular.module('starter', ['ionic',
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  
+
   $stateProvider
   // setup an abstract state for the tabs directive
     .state('tab', {

@@ -1,6 +1,15 @@
 angular.module('starter.pkmdetailctrl', ['ionic'])
 
-  .controller('PkmDetailCtrl', function($scope, $stateParams, Pkms, DpsUtil, ivCalculator, $ionicPopup) {
+  .controller('PkmDetailCtrl', function($scope,
+                                        $stateParams,
+                                        $ionicScrollDelegate,
+                                        $timeout,
+                                        Pkms,
+                                        DpsUtil,
+                                        ivCalculator,
+                                        $ionicPopup,
+                                        $location,
+                                        $anchorScroll) {
     var pkmId = $stateParams.pkmId;
     $scope.pkm = {};
     $scope.perfection = {};
@@ -16,10 +25,6 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
       }
     }
 
-    $scope.cp = 871;
-    $scope.hp = 80;
-    $scope.dust = 1300;
-    
     $scope.computeIv = function(name, cp, hp, dust){
       $scope.ivsErrors = false;
 
@@ -27,6 +32,7 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
         $scope.ivs = ivCalculator.evaluate(name, cp, hp, dust);
         extractPerfectionMinAndMax($scope.ivs);
         extractPerfectionAverage($scope.ivs);
+        scrollToResult();
       } catch(e) {
         $scope.ivsErrors = true;
       }
@@ -69,6 +75,12 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
       });
 
       $scope.perfection.average = Math.round(sum / ivArray.length)
+    }
+
+    function scrollToResult(){
+      $location.hash('result');
+      $anchorScroll();
+      
     }
 
   });

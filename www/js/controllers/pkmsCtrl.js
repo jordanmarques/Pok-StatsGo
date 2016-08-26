@@ -6,7 +6,7 @@ angular.module('starter.pkmsctrl', ['ionic'])
     $scope.search = '';
 
     $scope.scrollTop = function() {
-      $ionicScrollDelegate.scrollTop();
+      $ionicScrollDelegate.scrollTop(true);
     };
 
     $scope.pkms = Pkms.getPokemons();

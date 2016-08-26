@@ -5,7 +5,7 @@
   The Friends service returns an array of friend data
 -->
 <ion-view view-title="{{pkm.name}}">
-    <ion-content class="padding" overflow-scroll="true">
+    <ion-content class="padding" delegate-handle="pkmsdetailDelegate">
       <ion-slides>
         <ion-slide-page class="scroll-content">
           <div class="row">
@@ -141,6 +141,8 @@
             </form>
           </div>
 
+          <span id="result" ></span>
+
           <div class="text-center" ng-show="ivs.length == 0 || ivsErrors">
             <p>Oups, impossible de calculer les Iv de ton Pokémon...</p>
             <p>Il doit y avoir une erreur dans ses statistiques.</p>
@@ -174,7 +176,7 @@
 
             <div>
               <div class="col">
-                <h4 class="grey">Résultat(s) Possible:</h4>
+                <h4 class="grey">{{ ivs.length }}&nbsp;Résultat(s) Possible:</h4>
               </div>
 
               <div id="tableIvHead" class="row text-center grey">
