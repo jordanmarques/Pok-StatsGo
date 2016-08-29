@@ -4,8 +4,8 @@
       <i class="ion-android-arrow-back grey" style="font-size: 25px"></i>
     </div>
     <h1 class="title grey">
-      {{modalAbility.nameFr}}
-      <b class="badge-type badge-type-header" ng-class="[modalAbility.typeFr]">{{modalAbility.typeFr}}</b>
+      {{language == FRENCH ? modalAbility.nameFr : modalAbility.nameEn}}
+      <b class="badge-type badge-type-header" ng-class="[language == FRENCH ? modalAbility.typeFr : modalAbility.typeEn]">{{ language == FRENCH ? modalAbility.typeFr : modalAbility.typeEn}}</b>
     </h1>
   </ion-header-bar>
   <ion-content>
@@ -15,9 +15,9 @@
           <div class="col-30">
             <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 70px; height: 70px">
           </div>
-          <div class="col-70 margin-left-10">
-            <h2><b>#{{pkm.id}} {{pkm.nameFr}}</b></h2>
-            <p>DPS avec {{modalAbility.nameFr}}: <b>{{pkm.abilityDps}}</b></p>
+          <div class="col-70 ">
+            <h2><b>#{{pkm.id}} {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}</b></h2>
+            <p>DPS avec {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}: <b>{{pkm.abilityDps}}</b></p>
           </div>
         </div>
       </ion-item>

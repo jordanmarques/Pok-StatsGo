@@ -29,11 +29,14 @@
 
         <ion-list>
           <ion-item class="item-avatar item-icon-right"
-                    collection-repeat="ability in allAbilities| orderBy:filter | filter:{ nameFr: search }"
+                    collection-repeat="ability in allAbilities| orderBy:filter | filter: (language == FRENCH ? { nameFr: search } : { nameEn: search })"
                     ng-click="openModal(ability)">
             <div class="row">
               <div class="col text-center padding-0" style="margin-left:20px; font-size: 120%">
-                <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
+                <b>{{language == FRENCH ? ability.nameFr : ability.nameEn}}</b>&nbsp;
+                <b class="badge-type fs-70" ng-class="[language == FRENCH ? ability.typeFr : ability.typeEn]">
+                  {{language == FRENCH ? ability.typeFr : ability.typeEn}}
+                </b>
               </div>
             </div>
             <div class="row">

@@ -13,7 +13,7 @@
         </div>
       </div>
       <ion-list>
-        <ion-item class="item-avatar item-icon-right" collection-repeat="pkm in pkms | orderBy: filter | filter:{ nameFr: search }" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}">
+        <ion-item class="item-avatar item-icon-right" collection-repeat="pkm in pkms | orderBy: filter | filter: (language == FRENCH ? { nameFr: search } : { nameEn: search })" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}">
           <img ng-src="img/pokemons/{{pkm.id}}.ico">
           <h2><b class="grey">#{{pkm.id}}&nbsp;{{language == FRENCH ? pkm.nameFr : pkm.nameEn}}</b></h2>
           <p>
