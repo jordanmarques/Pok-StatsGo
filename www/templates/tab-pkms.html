@@ -13,11 +13,11 @@
         </div>
       </div>
       <ion-list>
-        <ion-item class="item-avatar item-icon-right" collection-repeat="pkm in pkms | orderBy: filter | filter:{ nameFr: search }" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{pkm.nameFr}}">
+        <ion-item class="item-avatar item-icon-right" collection-repeat="pkm in pkms | orderBy: filter | filter:{ nameFr: search }" type="item-text-wrap" href="#/tab/pkm/{{pkm.id}}&{{pkm.id}} {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}">
           <img ng-src="img/pokemons/{{pkm.id}}.ico">
-          <h2><b class="grey">#{{pkm.id}}&nbsp;{{pkm.nameFr}}</b></h2>
+          <h2><b class="grey">#{{pkm.id}}&nbsp;{{language == FRENCH ? pkm.nameFr : pkm.nameEn}}</b></h2>
           <p>
-            <b class="badge-type" ng-repeat="type in pkm.typesFr" ng-class="[type]">{{type}}</b>
+            <b class="badge-type" ng-repeat="type in (language == FRENCH ? pkm.typesFr : pkm.typesEn)" ng-class="[type]">{{type}}</b>
           </p>
           <i class="icon ion-chevron-right icon-accessory"></i>
         </ion-item>

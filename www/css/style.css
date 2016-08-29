@@ -12,6 +12,21 @@
   content: url('../img/icon/poke.png');
 }
 
+.icon-translate{
+  content: url('../img/icon/fr-en.png');
+  height: 20px;
+  width: 20px;
+}
+
+#translateBtn{
+  border-color: #f8f8f8;
+  padding-top: 8px;
+}
+
+#translateBtn .active{
+  border-color: #f8f8f8;
+}
+
 .badge-type{
   margin: 3px;
   padding: 3px;

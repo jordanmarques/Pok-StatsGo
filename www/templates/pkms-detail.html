@@ -4,7 +4,7 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="{{pkm.name}}">
+<ion-view view-title="{{language == FRENCH ? pkm.nameFr : pkm.nameEn || pkm.name}}">
     <ion-content class="padding" delegate-handle="pkmsdetailDelegate">
       <ion-slides>
         <ion-slide-page class="scroll-content">
@@ -12,7 +12,7 @@
             <div class="col col-30">
               <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 140px; height: 140px">
               <p class="text-center">
-                <b class="badge-type" ng-repeat="type in pkm.typesFr" ng-class="[type]">{{type}}</b>
+                <b class="badge-type" ng-repeat="type in (language == FRENCH ? pkm.typesFr : pkm.typesEn)" ng-class="[type]">{{type}}</b>
               </p>
             </div>
             <div class="col col-70">
@@ -44,7 +44,8 @@
                     <ion-item  class="ability-font-size" ng-repeat="ability in pkm.abilities">
                       <div class="row">
                         <div class="col text-center">
-                          <b>{{ability.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[ability.typeFr]">{{ability.typeFr}}</b>
+                          <b>{{language == FRENCH ? ability.nameFr : ability.nameEn}}</b>&nbsp;
+                          <b class="badge-type fs-70" ng-class="[language == FRENCH ? ability.typeFr : ability.typeEn]">{{language == FRENCH ? ability.typeFr : ability.typeEn}}</b>
                         </div>
                       </div>
                       <div class="row">
@@ -72,7 +73,8 @@
                   <ion-item class="ability-font-size" ng-repeat="speAbility in pkm.speAbilities">
                     <div class="row">
                       <div class="col text-center">
-                        <b>{{speAbility.nameFr}}</b>&nbsp;<b class="badge-type fs-70" ng-class="[speAbility.typeFr]">{{speAbility.typeFr}}</b>
+                        <b>{{language == FRENCH ? speAbility.nameFr : speAbility.nameEn}}</b>&nbsp;
+                        <b class="badge-type fs-70" ng-class="[language == FRENCH ? speAbility.typeFr : speAbility.typeEn]">{{language == FRENCH ? speAbility.typeFr : speAbility.typeEn}}</b>
                       </div>
                     </div>
                     <div class="row">

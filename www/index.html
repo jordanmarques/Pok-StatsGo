@@ -19,6 +19,7 @@
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
     <script src="lib/underscore/underscore-min.js"></script>
+    <script src="lib/ionic-toast/dist/ionic-toast.bundle.min.js"></script>
 
     <!-- your app's js -->
     <script src="js/app.js"></script>
@@ -45,6 +46,11 @@
     <ion-nav-bar class="bar-stable" animation="none">
       <ion-nav-back-button>
       </ion-nav-back-button>
+      <ion-nav-buttons side="right">
+        <button id="translateBtn" class="button" ng-click="changeLanguage()">
+          <i class="icon icon-translate"></i>
+        </button>
+      </ion-nav-buttons>
     </ion-nav-bar>
     <!--
       The views will be rendered in the <ion-nav-view> directive below

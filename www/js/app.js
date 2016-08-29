@@ -16,13 +16,15 @@ angular.module('starter', ['ionic',
                             'starter.levels',
                             'starter.ivBadger',
                             'starter.ivAnalyser',
+                            'ionic-toast',
                             'starter.pkmdetailctrl'])
 
-.run(function($ionicPlatform) {
+.run(function($rootScope, $ionicPlatform, ionicToast) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
-
+    $rootScope.ENGLISH = "En";
+    $rootScope.FRENCH = "Fr";
+    $rootScope.language = $rootScope.FRENCH;
+    
     ionic.keyboard.disable();
 
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -31,9 +33,25 @@ angular.module('starter', ['ionic',
 
     }
     if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
+
+    $rootScope.changeLanguage = function(){
+
+      if( $rootScope.language == $rootScope.FRENCH){
+        
+        $rootScope.language = $rootScope.ENGLISH;
+        ionicToast.show('English', 'middle', false, 1000);
+        
+      } else if($rootScope.language == $rootScope.ENGLISH){
+        
+        $rootScope.language = $rootScope.FRENCH;
+        ionicToast.show('Français', 'middle', false, 1000);
+      }
+    }
+
+
+
   });
 })
 
