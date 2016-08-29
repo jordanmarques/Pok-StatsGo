@@ -312,3 +312,16 @@ div#tobecovered img.cover{
 .margin-0{
   margin : 0;
 }
+
+.radius-tl{
+  border-top-left-radius: 5px;
+}
+.radius-tr{
+  border-top-right-radius: 5px;
+}
+.radius-bl{
+  border-bottom-left-radius: 5px;
+}
+.radius-br{
+  border-bottom-right-radius: 5px;
+}

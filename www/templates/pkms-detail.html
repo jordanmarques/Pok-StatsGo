@@ -41,7 +41,9 @@
             <div class="col col-50 padding-0">
                 <h5 class="text-center grey"><b>Capacité(s) Simple :</b></h5>
                   <ion-list>
-                    <ion-item  class="ability-font-size" ng-repeat="ability in pkm.abilities">
+                    <ion-item  class="ability-font-size"
+                               ng-repeat="ability in pkm.abilities | orderBy:'-pkmDps'"
+                               ng-class="roundBorder($index,'simple')">
                       <div class="row">
                         <div class="col text-center">
                           <b>{{language == FRENCH ? ability.nameFr : ability.nameEn}}</b>&nbsp;
@@ -70,7 +72,9 @@
              <div class="col col-50 padding-0">
                 <h5 class="text-center grey"><b>Capacité(s)&nbsp;Chargé :</b></h5>
                 <ion-list>
-                  <ion-item class="ability-font-size" ng-repeat="speAbility in pkm.speAbilities">
+                  <ion-item class="ability-font-size"
+                            ng-repeat="speAbility in pkm.speAbilities | orderBy:'-pkmDps'"
+                            ng-class="roundBorder($index, 'charged')">
                     <div class="row">
                       <div class="col text-center">
                         <b>{{language == FRENCH ? speAbility.nameFr : speAbility.nameEn}}</b>&nbsp;
@@ -116,7 +120,7 @@
           <div>
             <form name="ivForm" novalidate="" ng-submit="computeIv(pkm.nameEn, cp, hp, dust)">
 
-              <label class="item item-input">
+              <label class="item item-input radius-tl radius-tr">
                 <img src="img/icon/cp.png" style="width: 40px; height: 40px">
                 <span class="input-label pixelated-text">&nbsp;CP</span>
                 <input type="number" ng-model="cp" required>
@@ -128,7 +132,7 @@
                 <input type="number" ng-model="hp" required>
               </label>
 
-              <label class="item item-input">
+              <label class="item item-input radius-bl radius-br">
                 <img src="img/icon/dust.png" style="width: 40px; height: 40px; margin-left: -2px; margin-right: 5px;">
                 <span class="input-label pixelated-text">Poussières pour UP</span>
                 <input type="number" ng-model="dust" required>

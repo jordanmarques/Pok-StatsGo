@@ -25,6 +25,36 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
       }
     }
 
+    $scope.roundBorder = function(index, type){
+
+      var abilitiesLength = $scope.pkm.abilities.length;
+      var speAbilitiesLength = $scope.pkm.speAbilities.length;
+      
+      if(type == "simple"){
+        if(index == 0){
+          return "radius-tl"
+        } else if(index == abilitiesLength-1){
+          if(abilitiesLength > speAbilitiesLength){
+            return "radius-br radius-bl"
+          } else{
+            return "radius-bl"
+          }
+        }
+
+      }else if(type =="charged"){
+        if(index == 0){
+          return "radius-tr"
+        } else if(index == speAbilitiesLength-1){
+          if(speAbilitiesLength > abilitiesLength ){
+            return "radius-br radius-bl"
+          } else{
+            return "radius-br"
+          }
+        }
+      }
+
+    };
+
     $scope.computeIv = function(name, cp, hp, dust){
       $scope.ivsErrors = false;
 
@@ -80,7 +110,7 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
     function scrollToResult(){
       $location.hash('result');
       $anchorScroll();
-      
+
     }
 
   });
