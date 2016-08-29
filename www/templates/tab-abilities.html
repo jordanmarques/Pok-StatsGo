@@ -1,9 +1,9 @@
-<ion-view view-title="Capacités">
+<ion-view view-title="{{ language == FRENCH ? 'Capacités' : 'Moves'}} ">
 
   <ion-content>
     <div class="row">
       <div class="col">
-        <input type="search" placeholder="Rechercher..." ng-model="search">
+        <input type="search" placeholder="{{ language == FRENCH ? 'Rechercher...' : 'Search...' }}" ng-model="search">
       </div>
     </div>
      <div class="row">
@@ -11,13 +11,13 @@
             ng-class="{'category-active' : isSimpleActive}"
             ng-click="allAbilities = abilities; isSimpleActive = true">
          <i class="icon icon-ability" style="width: 15px; height: 15px"></i>
-         <span class="tab-title fs-70">Simple</span>
+         <span class="tab-title fs-70">{{ language == FRENCH ? 'Simple' : 'Fast' }}</span>
        </div>
        <div class="col-40 text-center category"
             ng-class="{'category-active' : !isSimpleActive}"
             ng-click="allAbilities = speAbilities; isSimpleActive = false">
          <i class="icon icon-ability" style="width: 15px; height: 15px"></i>
-         <span class="tab-title fs-70">Spécial</span>
+         <span class="tab-title fs-70">{{ language == FRENCH ? 'Chargé' : 'Charge' }}</span>
        </div>
      </div>
     <div class="row">

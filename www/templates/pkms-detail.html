@@ -39,7 +39,7 @@
 
           <div class="row">
             <div class="col col-50 padding-0">
-                <h5 class="text-center grey"><b>Capacité(s) Simple :</b></h5>
+                <h5 class="text-center grey"><b>{{ language == FRENCH ? 'Capacité(s) Simple :' : 'Fast:' }}</b></h5>
                   <ion-list>
                     <ion-item  class="ability-font-size"
                                ng-repeat="ability in pkm.abilities | orderBy:'-pkmDps'"
@@ -61,7 +61,8 @@
                       </div>
                       <div class="row">
                         <div class="col text-center">
-                          <b style="font-size: 90%">DPS de {{pkm.nameFr}}&nbsp;{{ability.pkmDps}}</b>
+                          <b ng-show="language == FRENCH" style="font-size: 90%">DPS de {{pkm.nameFr}}&nbsp;:&nbsp;{{ability.pkmDps}}</b>
+                          <b ng-show="language == ENGLISH" style="font-size: 90%">{{pkm.nameEn}} DPS&nbsp;:&nbsp;{{ability.pkmDps}}</b>
                         </div>
                       </div>
 
@@ -70,7 +71,7 @@
             </div>
 
              <div class="col col-50 padding-0">
-                <h5 class="text-center grey"><b>Capacité(s)&nbsp;Chargé :</b></h5>
+                <h5 class="text-center grey"><b>{{ language == FRENCH ? 'Capacité(s)&nbsp;Chargé :' : 'Charge:' }}</b></h5>
                 <ion-list>
                   <ion-item class="ability-font-size"
                             ng-repeat="speAbility in pkm.speAbilities | orderBy:'-pkmDps'"
@@ -92,7 +93,8 @@
                     </div>
                     <div class="row">
                       <div class="col text-center">
-                        <b style="font-size: 90%">DPS de {{pkm.nameFr}}&nbsp;{{speAbility.pkmDps}}</b>
+                        <b ng-show="language == FRENCH" style="font-size: 90%">DPS de {{pkm.nameFr}}&nbsp;:&nbsp;{{speAbility.pkmDps}}</b>
+                        <b ng-show="language == ENGLISH" style="font-size: 90%">{{pkm.nameEn}} DPS&nbsp;:&nbsp;{{speAbility.pkmDps}}</b>
                       </div>
                     </div>
                   </ion-item>
@@ -109,7 +111,7 @@
 
           <div class="row text-center">
             <div class="col">
-              <h3 class="pixelated-text grey">Calculateur d'IV</h3>
+              <h3 class="pixelated-text grey">{{ language == FRENCH ? 'Calculateur d\'IV' : 'IV Calculator'}}</h3>
               <div id="tobecoverd">
                 <img class="under" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 80px; height: 80px">
                 <img class="cover" ng-src="img/mask.png" style="width: 110px; height: 100px">
@@ -134,7 +136,7 @@
 
               <label class="item item-input radius-bl radius-br">
                 <img src="img/icon/dust.png" style="width: 40px; height: 40px; margin-left: -2px; margin-right: 5px;">
-                <span class="input-label pixelated-text">Poussières pour UP</span>
+                <span class="input-label pixelated-text">{{ language == FRENCH ? 'Poussières pour UP' : 'Dust' }}</span>
                 <input type="number" ng-model="dust" required>
               </label>
 
@@ -142,7 +144,7 @@
                       class="button  button-assertive button-small button-outline text-center"
                       type="submit"
                       ng-disabled="ivForm.$invalid">
-                <span class="pixelated-text">Calculer</span>
+                <span class="pixelated-text">{{ language == FRENCH ? 'Calculer' : 'Compute' }}</span>
               </button>
             </form>
           </div>
@@ -150,8 +152,14 @@
           <span id="result" ></span>
 
           <div class="text-center" ng-show="ivs.length == 0 || ivsErrors">
-            <p>Oups, impossible de calculer les Iv de ton Pokémon...</p>
-            <p>Il doit y avoir une erreur dans ses statistiques.</p>
+            <span ng-show="language == FRENCH">
+              <p>Oups, impossible de calculer les Iv de ton Pokémon...</p>
+              <p>Il doit y avoir une erreur dans ses statistiques.</p>
+            </span>
+            <span ng-show="language == ENGLISH">
+              <p>Oups, an error occured</p>
+              <p>It must have an error in your pokémon stats !</p>
+            </span>
             <img class="center" src="img/error-pika.jpg">
           </div>
 
@@ -159,22 +167,24 @@
 
             <div>
               <div class="col">
-                <h4 class="grey">Analyse:</h4>
+                <h4 class="grey">{{ language == FRENCH ? 'Analyse:' : 'Analysis:' }}</h4>
               </div>
 
               <div class="col ">
                 <span class="margin-0 grey" ng-hide="perfection.min == perfection.max">
                   <p>
-                    <span>Les Iv sont comprise entre:&nbsp;</span>
-                    <b>{{ perfection.min }}%</b> et <b>{{ perfection.max }}%</b>
+                    <span> {{ language == FRENCH ? 'Les IV sont comprise entre:&nbsp;' : 'IV are betwen:&nbsp;' }}</span>
+                    <b>{{ perfection.min }}%</b>&nbsp;{{ language == FRENCH ? 'et' : 'and' }}&nbsp;<b>{{ perfection.max }}%</b>
                   </p>
                   <p>
-                    <div iv-analyser iv-average="perfection.average"></div>
+                    <div >
+                      <span>{{ language == FRENCH ? analysis.Fr : analysis.En }}</span>
+                    </div>
                   </p>
                 </span>
 
                 <span class="margin-0 grey" ng-show="perfection.min == perfection.max">
-                  <span>L'Iv est de:&nbsp;</span>
+                  <span>{{ language == FRENCH ? 'L\'Iv est de:' : 'IV is:'}}&nbsp;</span>
                   <b>{{ perfection.min }}%</b>
                 </span>
               </div>
@@ -182,11 +192,11 @@
 
             <div>
               <div class="col">
-                <h4 class="grey">{{ ivs.length }}&nbsp;Résultat(s) Possible:</h4>
+                <h4 class="grey">{{ ivs.length }}&nbsp;{{ language == FRENCH ? 'Résultat(s) Possible:' : 'Possible Result(s)' }}</h4>
               </div>
 
               <div id="tableIvHead" class="row text-center grey">
-                <div class="col">Attaque IV</div>
+                <div class="col">{{ language == FRENCH ? 'Attaque IV' : 'Attack IV'}}</div>
                 <div class="col">Defense IV</div>
                 <div class="col">Stamina IV</div>
                 <div class="col">Perfection</div>

@@ -15,7 +15,6 @@ angular.module('starter', ['ionic',
                             'starter.pkmsctrl',
                             'starter.levels',
                             'starter.ivBadger',
-                            'starter.ivAnalyser',
                             'ionic-toast',
                             'starter.pkmdetailctrl'])
 

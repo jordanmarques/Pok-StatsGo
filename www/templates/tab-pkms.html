@@ -3,7 +3,7 @@
     <div>
       <div class="row">
         <div class="col">
-          <input type="search" placeholder="Rechercher..." ng-model="search">
+          <input type="search" placeholder="{{ language == FRENCH ? 'Rechercher...' : 'Search...' }}" ng-model="search">
         </div>
       </div>
       <div class="row">

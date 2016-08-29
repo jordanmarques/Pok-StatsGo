@@ -17,7 +17,8 @@
           </div>
           <div class="col-70 ">
             <h2><b>#{{pkm.id}} {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}</b></h2>
-            <p>DPS avec {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}: <b>{{pkm.abilityDps}}</b></p>
+            <p ng-show="language == FRENCH">DPS de {{pkm.nameFr}}&nbsp;:&nbsp;<b>{{pkm.abilityDps}}</b></p>
+            <p ng-show="language == ENGLISH">{{pkm.nameEn}} DPS&nbsp;:&nbsp;<b>{{pkm.abilityDps}}</b></p>
           </div>
         </div>
       </ion-item>

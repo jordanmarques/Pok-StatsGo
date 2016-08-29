@@ -9,6 +9,7 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
                                         ivCalculator,
                                         $ionicPopup,
                                         $location,
+                                        $rootScope,
                                         $anchorScroll) {
     var pkmId = $stateParams.pkmId;
     $scope.pkm = {};
@@ -29,7 +30,7 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
 
       var abilitiesLength = $scope.pkm.abilities.length;
       var speAbilitiesLength = $scope.pkm.speAbilities.length;
-      
+
       if(type == "simple"){
         if(index == 0){
           return "radius-tl"
@@ -62,6 +63,7 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
         $scope.ivs = ivCalculator.evaluate(name, cp, hp, dust);
         extractPerfectionMinAndMax($scope.ivs);
         extractPerfectionAverage($scope.ivs);
+        analysis($scope.perfection.average);
         scrollToResult();
       } catch(e) {
         $scope.ivsErrors = true;
@@ -70,10 +72,18 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
     };
 
     $scope.showAlert = function() {
+      var template = "";
+      if($rootScope.language == $rootScope.FRENCH){
+        template = 'Ce calculateur permet de calculer les Iv de vos Pokémons.\n' +
+          'Il suffit simplement de renseigner les valeurs de votre pokémon dans les champs ci-dessous'
+      } else {
+        template = 'This calculator simply calculates your pokémons IV.\n' +
+          'You just need to fill the following inputs with your pokémon\'s values'
+      }
+
       var alertPopup = $ionicPopup.alert({
         title: 'Information',
-        template: 'Ce calculateur permet de calculer les Iv de vos Pokémons.\n' +
-        'Il suffit simplement de renseigner les valeurs de votre pokémon dans les champs ci-dessous',
+        template: template,
         okType:'button  button-assertive button-outline'
       });
     };
@@ -110,6 +120,34 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
     function scrollToResult(){
       $location.hash('result');
       $anchorScroll();
+
+    }
+
+    function analysis(average){
+      var sentences = {
+        BAD : {
+            Fr : "Ce Pokémon n'est pas bon, essayez d'en attraper un meilleur !",
+            En : "This Pokémon is not good, try to catch a better one !"},
+        NOTBAD : {
+            Fr : "Ce Pokémon a d'assez bonnes IV.",
+            En : "This Pokémon has pretty good IV"},
+        GOOD : {
+            Fr : "Ce Pokémon a de très bonnes IV, Vous pouvez l'utiliser en arène !",
+            En : "This pokémon has very good IV, use it in gym "},
+        EXCELLENT : {
+            Fr : "Ce Pokémon est le meilleur possible, augmentez ses CP au maximum !",
+            En : "This pokémon is just excellent !"}
+      };
+
+        if(average < 70){
+          $scope.analysis = sentences['BAD']
+        } else if(average >= 70 && average < 80){
+          $scope.analysis = sentences['NOTBAD']
+        } else if (average >= 80 && average < 100){
+          $scope.analysis = sentences['GOOD']
+        } else if ( scope.ivAverage == 100){
+          $scope.analysis = sentences['EXCELLENT']
+        }
 
     }
 
