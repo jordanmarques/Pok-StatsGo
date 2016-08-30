@@ -5,7 +5,7 @@ angular.module('starter.abilitiesctrl', ['ionic'])
     $scope.filter ='';
 
     $scope.scrollTop = function() {
-      $ionicScrollDelegate.scrollTop();
+      $ionicScrollDelegate.scrollTop(true);
     };
 
     $scope.abilities = Ability.getAbilities();
