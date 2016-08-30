@@ -19,20 +19,19 @@
 }
 
 .icon-fr{
-  content: url('../img/icon/fr.png');
-  height: 15px;
-  width: 20px;
+  content: url('../img/icon/fr2.png');
+  height: 30px;
+  width: 35px;
 }
 
 .icon-en{
-  content: url('../img/icon/en.png');
-  height: 15px;
-  width: 20px;
+  content: url('../img/icon/en2.png');
+  height: 30px;
+  width: 35px;
 }
 
 #translateBtn{
   border-color: #f8f8f8;
-  padding-top: 8px;
 }
 
 #translateBtn .active{

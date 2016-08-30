@@ -6,7 +6,6 @@
 // 'starter.services' is found in ivService.js
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic',
-                            'ngStorage',
                             'starter.ivservices',
                             'starter.dpsservices',
                             'starter.pokemons' ,
@@ -19,16 +18,10 @@ angular.module('starter', ['ionic',
                             'ionic-toast',
                             'starter.pkmdetailctrl'])
 
-.run(function($rootScope, $ionicPlatform, ionicToast, $localStorage) {
-  $ionicPlatform.ready(function() {
+.run(function($rootScope, $ionicPlatform, ionicToast) {
     $rootScope.ENGLISH = "En";
     $rootScope.FRENCH = "Fr";
-    
-    if($localStorage.language){
-      $rootScope.language = $localStorage.language 
-    } else{
-      $rootScope.language = $rootScope.FRENCH;
-    }
+    $rootScope.language = $rootScope.ENGLISH;
 
     ionic.keyboard.disable();
 
@@ -46,20 +39,17 @@ angular.module('starter', ['ionic',
       if( $rootScope.language == $rootScope.FRENCH){
 
         $rootScope.language = $rootScope.ENGLISH;
-        $localStorage.language = $rootScope.ENGLISH;
         ionicToast.show('English', 'middle', false, 1000);
 
       } else if($rootScope.language == $rootScope.ENGLISH){
 
         $rootScope.language = $rootScope.FRENCH;
-        $localStorage.language = $rootScope.FRENCH;
         ionicToast.show('Français', 'middle', false, 1000);
       }
     }
 
 
 
-  });
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
