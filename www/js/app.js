@@ -19,10 +19,13 @@ angular.module('starter', ['ionic',
                             'starter.pkmdetailctrl'])
 
 .run(function($rootScope, $ionicPlatform, ionicToast) {
-    $rootScope.ENGLISH = "En";
-    $rootScope.FRENCH = "Fr";
-    $rootScope.language = $rootScope.ENGLISH;
 
+  $rootScope.ENGLISH = "En";
+  $rootScope.FRENCH = "Fr";
+  $rootScope.language = $rootScope.ENGLISH;
+  
+  $ionicPlatform.ready(function() {
+    
     ionic.keyboard.disable();
 
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -34,20 +37,20 @@ angular.module('starter', ['ionic',
       StatusBar.styleDefault();
     }
 
-    $rootScope.changeLanguage = function(){
+    $rootScope.changeLanguage = function () {
 
-      if( $rootScope.language == $rootScope.FRENCH){
+      if ($rootScope.language == $rootScope.FRENCH) {
 
         $rootScope.language = $rootScope.ENGLISH;
         ionicToast.show('English', 'middle', false, 1000);
 
-      } else if($rootScope.language == $rootScope.ENGLISH){
+      } else if ($rootScope.language == $rootScope.ENGLISH) {
 
         $rootScope.language = $rootScope.FRENCH;
         ionicToast.show('Français', 'middle', false, 1000);
       }
     }
-
+  })
 
 
 })
