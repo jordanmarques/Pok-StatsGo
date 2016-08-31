@@ -1,9 +1,18 @@
 angular.module('starter.pokemons', [])
-  
+
   .factory('Pkms', function() {
-    
+
     var service = {};
-    
+
+    service.getPokemonById = function(id){
+      var data = service.getPokemons();
+      for(var i = 0; i < data.length; i++ ){
+        if(data[i].id == id){
+          return data[i];
+        }
+      }
+    };
+
     service.getPokemons = function(){
       return [
         {
@@ -12131,6 +12140,6 @@ angular.module('starter.pokemons', [])
         }
       ]
     }
-    
+
     return service;
   });

@@ -16,46 +16,9 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
     $scope.perfection = {};
     $scope.pkm.name = "#" + $stateParams.name;
 
-
-    var data = Pkms.getPokemons();
-    for(var i = 0; i < data.length; i++ ){
-      if(data[i].id == pkmId){
-        $scope.pkm = data[i];
-        computeAbilitiesDpsForPkm($scope.pkm);
-        break;
-      }
-    }
-
-    $scope.roundBorder = function(index, type){
-
-      var abilitiesLength = $scope.pkm.abilities.length;
-      var speAbilitiesLength = $scope.pkm.speAbilities.length;
-
-      if(type == "simple"){
-        if(index == 0){
-          return "radius-tl"
-        } else if(index == abilitiesLength-1){
-          if(abilitiesLength > speAbilitiesLength){
-            return "radius-br radius-bl"
-          } else{
-            return "radius-bl"
-          }
-        }
-
-      }else if(type =="charged"){
-        if(index == 0){
-          return "radius-tr"
-        } else if(index == speAbilitiesLength-1){
-          if(speAbilitiesLength > abilitiesLength ){
-            return "radius-br radius-bl"
-          } else{
-            return "radius-br"
-          }
-        }
-      }
-
-    };
-
+    $scope.pkm = Pkms.getPokemonById(pkmId);
+    computeAbilitiesDpsForPkm($scope.pkm);
+    
     $scope.computeIv = function(name, cp, hp, dust){
       $scope.ivsErrors = false;
 
@@ -98,6 +61,36 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
         speAbility.pkmDps = DpsUtil.computeAbilityDpsForPkm(speAbility, pkm)
       });
     }
+
+    $scope.roundBorder = function(index, type){
+
+      var abilitiesLength = $scope.pkm.abilities.length;
+      var speAbilitiesLength = $scope.pkm.speAbilities.length;
+
+      if(type == "simple"){
+        if(index == 0){
+          return "radius-tl"
+        } else if(index == abilitiesLength-1){
+          if(abilitiesLength > speAbilitiesLength){
+            return "radius-br radius-bl"
+          } else{
+            return "radius-bl"
+          }
+        }
+
+      }else if(type =="charged"){
+        if(index == 0){
+          return "radius-tr"
+        } else if(index == speAbilitiesLength-1){
+          if(speAbilitiesLength > abilitiesLength ){
+            return "radius-br radius-bl"
+          } else{
+            return "radius-br"
+          }
+        }
+      }
+
+    };
 
     function extractPerfectionMinAndMax(ivArray){
       var perfectionArray = Array.from(ivArray, function(x){
