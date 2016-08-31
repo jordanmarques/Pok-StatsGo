@@ -19,6 +19,8 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
     $scope.pkm = Pkms.getPokemonById(pkmId);
     computeAbilitiesDpsForPkm($scope.pkm);
     
+    $scope.typesPkm = Pkms.getPokemonByType("fire");
+    
     $scope.computeIv = function(name, cp, hp, dust){
       $scope.ivsErrors = false;
 

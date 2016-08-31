@@ -26,21 +26,20 @@
         <button class="button button-small button-assertive" ng-class="{'button-outline' : filter != ''}" ng-click="filter = ''">Type</button>
       </div>
     </div>
-
         <ion-list>
-          <ion-item class="item-avatar item-icon-right"
+          <ion-item class="item-icon-right"
                     collection-repeat="ability in allAbilities| orderBy:filter | filter: (language == FRENCH ? { nameFr: search } : { nameEn: search })"
-                    ng-click="openModal(ability)">
+                    href="#/tab/abilities/{{ ability.nameEn }}">
             <div class="row">
-              <div class="col text-center padding-0" style="margin-left:20px; font-size: 120%">
-                <b>{{language == FRENCH ? ability.nameFr : ability.nameEn}}</b>&nbsp;
+              <div class="col text-center padding-0" style="font-size: 150%">
+                <b class="grey">{{language == FRENCH ? ability.nameFr : ability.nameEn}}</b>&nbsp;
                 <b class="badge-type fs-70" ng-class="[language == FRENCH ? ability.typeFr : ability.typeEn]">
                   {{language == FRENCH ? ability.typeFr : ability.typeEn}}
                 </b>
               </div>
             </div>
             <div class="row">
-              <div class="col">
+              <div class="col padding-0">
                 <table class="center" style="font-size: 150%">
                   <tr>
                     <td><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.damage}}</span></td>
@@ -52,8 +51,7 @@
               </div>
             </div>
           </ion-item>
-        </ion-list>
-
+          </ion-list>
 
   </ion-content>
   <div class="fixed-outside ">

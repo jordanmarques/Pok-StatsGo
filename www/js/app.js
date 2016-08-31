@@ -12,6 +12,7 @@ angular.module('starter', ['ionic',
                             'starter.pokemons' ,
                             'starter.speAbilities' ,
                             'starter.abilities',
+                            'starter.abilitydetailctrl',
                             'starter.abilitiesctrl',
                             'starter.pkmsctrl',
                             'starter.levels',
@@ -24,9 +25,9 @@ angular.module('starter', ['ionic',
   $rootScope.ENGLISH = "En";
   $rootScope.FRENCH = "Fr";
   $rootScope.language = $rootScope.ENGLISH;
-  
+
   $ionicPlatform.ready(function() {
-    
+
     ionic.keyboard.disable();
 
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
@@ -88,15 +89,25 @@ angular.module('starter', ['ionic',
       }
     })
 
-    .state('tab.pkm-detail', {
-      url: '/pkm/:pkmId&:name',
-      views: {
-        'tab-pkms': {
-          templateUrl: 'templates/pkms-detail.html',
-          controller: 'PkmDetailCtrl'
-        }
+  .state('tab.pkm-detail', {
+    url: '/pkm/:pkmId&:name',
+    views: {
+      'tab-pkms': {
+        templateUrl: 'templates/pkms-detail.html',
+        controller: 'PkmDetailCtrl'
       }
-    })
+    }
+  })
+
+  .state('tab.ability-detail', {
+    url: '/abilities/:abilityName',
+    views: {
+      'tab-abilities': {
+        templateUrl: 'templates/ability-detail.html',
+        controller: 'AbilityDetailCtrl'
+      }
+    }
+  });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/pkms');

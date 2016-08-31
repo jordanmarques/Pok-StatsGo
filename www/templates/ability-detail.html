@@ -1,0 +1,40 @@
+<ion-view>
+  <ion-nav-title >
+    <span class=" grey">
+      {{language == FRENCH ? ability.nameFr : ability.nameEn}}
+      <b class="badge-type badge-type-header" ng-class="[language == FRENCH ? ability.typeFr : ability.typeEn]">{{ language == FRENCH ? ability.typeFr : ability.typeEn}}</b>
+    </span>
+  </ion-nav-title>
+  <ion-content scroll=false>
+    <ion-slides>
+      <ion-slide-page class="scroll-content">
+        <ion-list>
+          <ion-item ng-repeat="pkm in ability.pokemons | orderBy: '-abilityDps'">
+            <div class="row">
+              <div class="col-30">
+                <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 70px; height: 70px">
+              </div>
+              <div class="col-70 ">
+                <h2><b>#{{pkm.id}} {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}</b></h2>
+                <p ng-show="language == FRENCH">DPS de {{pkm.nameFr}}&nbsp;:&nbsp;<b>{{pkm.abilityDps}}</b></p>
+                <p ng-show="language == ENGLISH">{{pkm.nameEn}} DPS&nbsp;:&nbsp;<b>{{pkm.abilityDps}}</b></p>
+              </div>
+            </div>
+          </ion-item>
+        </ion-list>
+        </ion-slide-page>
+        <ion-slide-page class="padding scroll-content">
+          <div class="row">
+            <div class="col col-offset-20 col-60">
+              <img src="img/icon/plus.png" style="height: 30px; width: 30px;"/>
+              <span class="pixelated-text padding-5 grey text-center">{{ language == FRENCH ? 'Efficace&nbsp;contre' : 'Strong against' }}</span>
+            </div>
+          </div>
+          <div >
+            <img ng-src="img/pokemons/{{pkm.id}}.ico" ng-repeat="pkm in weakPokemons" style="width: 70px; height: 70px"/>
+          </div>
+
+        </ion-slide-page>
+      </ion-slides>
+  </ion-content>
+</ion-view>

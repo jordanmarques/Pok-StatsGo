@@ -247,7 +247,7 @@ ion-tabs.tabs-striped.tabs-color-active-positive .tab-item.tab-item-active, ion-
 }
 
 .badge-type-header{
-  padding: 0px 3px 4px 3px;
+  padding: 0px 3px 2px 3px;
 }
 
 .margin-left-10{
@@ -335,4 +335,16 @@ div#tobecovered img.cover{
 }
 .radius-br{
   border-bottom-right-radius: 5px;
+}
+
+.gallery {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.item-ability{
+  font-size: 80%;
+  padding: 5px;
+  border-top: solid 1px #ddd;
+  border-bottom: solid 1px #ddd;
 }

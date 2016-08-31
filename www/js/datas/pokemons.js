@@ -13,6 +13,24 @@ angular.module('starter.pokemons', [])
       }
     };
 
+    service.getPokemonByType = function(typeEn){
+      var typedPokemons = [];
+      var pokemons = service.getPokemons();
+
+      pokemons.forEach(function(pokemon){
+        var types = pokemon.typesEn;
+        types.forEach(function(type){
+          if(type == typeEn){
+            typedPokemons.push(pokemon)
+          }
+        })
+
+      });
+
+      return typedPokemons;
+
+    };
+
     service.getPokemons = function(){
       return [
         {
