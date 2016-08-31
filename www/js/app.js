@@ -8,6 +8,7 @@
 angular.module('starter', ['ionic',
                             'starter.ivservices',
                             'starter.dpsservices',
+                            'starter.types',
                             'starter.pokemons' ,
                             'starter.speAbilities' ,
                             'starter.abilities',
