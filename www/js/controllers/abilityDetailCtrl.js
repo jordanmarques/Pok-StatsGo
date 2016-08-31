@@ -14,9 +14,9 @@ angular.module('starter.abilitydetailctrl', ['ionic'])
     var ability = Ability.getAbilityByName(abilityName);
     var speAbility = SpeAbility.getSpeAbilityByName(abilityName);
 
-    if(ability != 'undefined'){
+    if(typeof ability != 'undefined'){
       $scope.ability = ability;
-    } else if( speAbility != 'undefined'){
+    } else if(typeof speAbility != 'undefined'){
       $scope.ability = speAbility;
     }
 

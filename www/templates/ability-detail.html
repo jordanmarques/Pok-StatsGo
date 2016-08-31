@@ -30,9 +30,12 @@
               <span class="pixelated-text padding-5 grey text-center">{{ language == FRENCH ? 'Efficace&nbsp;contre' : 'Strong against' }}</span>
             </div>
           </div>
-          <div >
-            <img ng-src="img/pokemons/{{pkm.id}}.ico" ng-repeat="pkm in weakPokemons" style="width: 70px; height: 70px"/>
-          </div>
+          <span ng-repeat="pkm in weakPokemons">
+            <div>
+              <img ng-src="img/pokemons/{{pkm.id}}.ico"  style="width: 70px; height: 70px"/>
+              <b class="badge-type" ng-repeat="type in (language == FRENCH ? pkm.typesFr : pkm.typesEn)" ng-class="[type]">{{type}}</b>
+            </div>
+          </span>
 
         </ion-slide-page>
       </ion-slides>
