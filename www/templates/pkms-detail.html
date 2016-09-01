@@ -1,5 +1,5 @@
 <ion-view view-title="{{language == FRENCH ? pkm.nameFr : pkm.nameEn || pkm.name}}">
-    <ion-content class="padding" delegate-handle="pkmsdetailDelegate">
+    <ion-content scroll=false class="padding" delegate-handle="pkmsdetailDelegate">
       <ion-slides>
         <ion-slide-page class="scroll-content">
           <div class="row">
@@ -99,28 +99,58 @@
             </div>
           </div>
         </ion-slide-page>
+
         <ion-slide-page class="padding scroll-content">
           <div class="row text-center">
           <div class="col">
             <h3 class="pixelated-text grey">{{ language == FRENCH ? pkm.nameFr + ' est faible contre' : pkm.nameEn + ' is weak against'}}</h3>
-            <div id="tobecoverd">
+            <div>
               <img class="cover" src="img/icon/flat-ball.png" style="width: 50px; height: 50px">
             </div>
           </div>
           </div>
-          <hr>
-          <div class="row gallery">
-          <span ng-repeat="pkm in strongPokemons | unique: 'pkm.nameEn'" ng-show="strongPokemons.length > 0">
-            <div class="col col-30 text-center">
-              <img class="row center" ng-src="img/pokemons/{{pkm.id}}.ico"  style="width: 70px; height: 70px"/>
-              <b class="badge-type" ng-repeat="type in (language == FRENCH ? pkm.typesFr : pkm.typesEn)" ng-class="[type]">{{type}}</b>
+          <div class="row">
+            <div class="col-offset-10 col-40 text-center category"
+                 ng-class="{'category-active' : isSimpleActive}"
+                 ng-click="strongMoves = strongAbilities; isSimpleActive = true">
+              <i class="icon icon-ability" style="width: 15px; height: 15px"></i>
+              <span class="tab-title fs-70">{{ language == FRENCH ? 'Simple' : 'Fast' }}</span>
             </div>
-          </span>
-            <div class="col text-center" ng-show="strongPokemons.length == 0">
-              <span class="grey">{{ language == FRENCH ? pkm.nameFr + ' n\'a ausune faiblesse !' : pkm.nameEn + ' has no weakness' }}</span>
+            <div class="col-40 text-center category"
+                 ng-class="{'category-active' : !isSimpleActive}"
+                 ng-click="strongMoves = strongSpeAbilities; isSimpleActive = false">
+              <i class="icon icon-ability" style="width: 15px; height: 15px"></i>
+              <span class="tab-title fs-70">{{ language == FRENCH ? 'Chargé' : 'Charge' }}</span>
             </div>
           </div>
+          <hr>
+          <ion-list>
+            <ion-item ng-repeat="ability in strongMoves | orderBy:'-dps' | unique: 'nameEn'"
+                      ng-class="rounderAbilitiesTab($index, strongAbilities.length)"
+                      href="#/tab/abilities/{{ ability.nameEn }}">
+              <div class="row">
+                <div class="col text-center padding-0" style="font-size: 150%">
+                  <b class="grey">{{language == FRENCH ? ability.nameFr : ability.nameEn}}</b>&nbsp;
+                  <b class="badge-type fs-70" ng-class="[language == FRENCH ? ability.typeFr : ability.typeEn]">
+                    {{language == FRENCH ? ability.typeFr : ability.typeEn}}
+                  </b>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col padding-0">
+                  <table class="center" style="font-size: 150%">
+                    <tr>
+                      <td><img src="img/icon/atk.png" style="width: 20px; height: 20px"><span class="padding-15">{{ability.damage}}</span></td>
+                      <td class="padding-15"><img src="img/icon/spd.png" style="width: 15px; height: 15px"><span class="padding-15">{{ability.duration}} s</span></>
+                      <td class="padding-15"><img src="img/icon/dps.png" style="width: 30px; height: 30px"><span class="padding-15">{{ability.dps}}</span></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </ion-item>
+          </ion-list>
         </ion-slide-page>
+
         <ion-slide-page class="padding scroll-content">
 
           <div class="fixed-outside-top">

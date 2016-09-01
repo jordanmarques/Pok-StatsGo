@@ -28,7 +28,7 @@
     </div>
         <ion-list>
           <ion-item class="item-icon-right"
-                    collection-repeat="ability in allAbilities| orderBy:filter | filter: (language == FRENCH ? { nameFr: search } : { nameEn: search })"
+                    collection-repeat="ability in allAbilities| orderBy:'-dps'"
                     href="#/tab/abilities/{{ ability.nameEn }}">
             <div class="row">
               <div class="col text-center padding-0" style="font-size: 150%">

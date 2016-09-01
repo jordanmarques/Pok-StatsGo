@@ -6,57 +6,26 @@
     </span>
   </ion-nav-title>
   <ion-content scroll=false>
-    <ion-slides>
-      <ion-slide-page class="padding scroll-content">
-
-          <div class="row text-center">
-            <div class="col">
-              <h3 class="pixelated-text grey">{{ language == FRENCH ? 'Efficace&nbsp;contre' : 'Strong against'}}</h3>
-              <div id="tobecoverd">
-                <img class="cover" src="img/icon/flat-ball.png" style="width: 50px; height: 50px">
-              </div>
-            </div>
-          </div>
-          <hr>
-
-        <div class="row gallery">
-          <span ng-repeat="pkm in weakPokemons | orderBy: '-cp'" ng-show="weakPokemons.length > 0">
-            <div class="col col-30 text-center">
-              <img class="row center" ng-src="img/pokemons/{{pkm.id}}.ico"  style="width: 70px; height: 70px"/>
-              <b class="badge-type" ng-repeat="type in (language == FRENCH ? pkm.typesFr : pkm.typesEn)" ng-class="[type]">{{type}}</b>
-            </div>
-          </span>
-          <div class="col text-center" ng-show="weakPokemons.length == 0">
-            <span class="grey">{{ language == FRENCH ? 'Aucun pokémons n\'est très faible face à cette compétence' : 'There is no very weak pokémons against this move' }}</span>
-            <img class="center" src="img/error-pika.jpg">
-          </div>
+      <div class="row text-center">
+        <div class="col">
+          <h3 class="pixelated-text grey">{{ language == FRENCH ? 'Pokémons qui possèdent cette compétence' : 'Pokémons with this move'}}</h3>
+          <img class="cover" src="img/icon/flat-ball.png" style="width: 70px; height: 70px">
         </div>
-
-
-      </ion-slide-page>
-      <ion-slide-page class="scroll-content">
-        <div class="row text-center">
-          <div class="col">
-            <h3 class="pixelated-text grey">{{ language == FRENCH ? 'Pokémons qui possèdent cette compétence' : 'Pokémons with this move'}}</h3>
-            <img class="cover" src="img/icon/flat-ball.png" style="width: 70px; height: 70px">
-          </div>
-        </div>
-        <div class="padding-left padding-right"><hr></div>
-        <ion-list>
-          <ion-item ng-repeat="pkm in ability.pokemons | orderBy: '-abilityDps'" ng-class="{'no-border-top' : $index == 0}">
-            <div class="row">
-              <div class="col-30">
-                <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 70px; height: 70px">
-              </div>
-              <div class="col-70 ">
-                <h2><b>#{{pkm.id}} {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}</b></h2>
-                <p ng-show="language == FRENCH">DPS de {{pkm.nameFr}}&nbsp;:&nbsp;<b>{{pkm.abilityDps}}</b></p>
-                <p ng-show="language == ENGLISH">{{pkm.nameEn}} DPS&nbsp;:&nbsp;<b>{{pkm.abilityDps}}</b></p>
-              </div>
+      </div>
+      <div class="padding-left padding-right"><hr></div>
+      <ion-list>
+        <ion-item ng-repeat="pkm in ability.pokemons | orderBy: '-abilityDps'" ng-class="{'no-border-top' : $index == 0}">
+          <div class="row">
+            <div class="col-30">
+              <img class="center" ng-src="img/pokemons/{{pkm.id}}.ico" style="width: 70px; height: 70px">
             </div>
-          </ion-item>
-        </ion-list>
-        </ion-slide-page>
-      </ion-slides>
+            <div class="col-70 ">
+              <h2><b>#{{pkm.id}} {{language == FRENCH ? pkm.nameFr : pkm.nameEn}}</b></h2>
+              <p ng-show="language == FRENCH">DPS de {{pkm.nameFr}}&nbsp;:&nbsp;<b>{{pkm.abilityDps}}</b></p>
+              <p ng-show="language == ENGLISH">{{pkm.nameEn}} DPS&nbsp;:&nbsp;<b>{{pkm.abilityDps}}</b></p>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
   </ion-content>
 </ion-view>

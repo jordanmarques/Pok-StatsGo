@@ -2,9 +2,10 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
 
   .controller('PkmDetailCtrl', function($scope,
                                         $stateParams,
-                                        $ionicScrollDelegate,
                                         $timeout,
                                         Pkms,
+                                        SpeAbility,
+                                        Ability,
                                         Types,
                                         DpsUtil,
                                         ivCalculator,
@@ -14,6 +15,7 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
                                         $anchorScroll) {
     var pkmId = $stateParams.pkmId;
     $scope.pkm = {};
+    $scope.isSimpleActive = true;
     $scope.perfection = {};
     $scope.pkm.name = "#" + $stateParams.name;
 
@@ -25,14 +27,16 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
       types.push(Types.getType(type));
     });
 
-    var strongPokemons = [];
+    $scope.strongAbilities = [];
+    $scope.strongSpeAbilities = [];
     types.forEach(function(type){
       type.weaknesses.forEach(function(wtype){
-        strongPokemons = strongPokemons.concat(Pkms.getPokemonByType(wtype.nameEn))  
+        $scope.strongAbilities = $scope.strongAbilities.concat(Ability.getByType(wtype.nameEn));
+        $scope.strongSpeAbilities = $scope.strongSpeAbilities.concat(SpeAbility.getByType(wtype.nameEn))
       })
     });
     
-    $scope.strongPokemons = strongPokemons;
+    $scope.strongMoves = $scope.strongAbilities;
 
 
     $scope.computeIv = function(name, cp, hp, dust){
@@ -77,6 +81,14 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
         speAbility.pkmDps = DpsUtil.computeAbilityDpsForPkm(speAbility, pkm)
       });
     }
+    
+    $scope.rounderAbilitiesTab = function(index, listSize){
+      if(index == 0){
+        return "radius-tl radius-tr"
+      } else if(index == listSize-1){
+        return "radius-bl radius-br"
+      }
+    };
 
     $scope.roundBorder = function(index, type){
 
