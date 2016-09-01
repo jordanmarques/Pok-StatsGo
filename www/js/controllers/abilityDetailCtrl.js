@@ -27,6 +27,10 @@ angular.module('starter.abilitydetailctrl', ['ionic'])
       $scope.weakPokemons = $scope.weakPokemons.concat(Pkms.getPokemonByType(type.strengths[i].nameEn))
     }
 
+    for(var i2 = 0; i2 < $scope.weakPokemons.length ; i2++){
+      $scope.weakPokemons[i2].cp = parseInt($scope.weakPokemons[i2].cp)
+    }
+
     computePkmsDps($scope.ability.pokemons);
 
     function computePkmsDps(pkms){
