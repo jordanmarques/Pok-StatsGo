@@ -348,3 +348,12 @@ div#tobecovered img.cover{
   border-top: solid 1px #ddd;
   border-bottom: solid 1px #ddd;
 }
+
+.no-border-top{
+  border-top: white;
+}
+
+.gallery {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
