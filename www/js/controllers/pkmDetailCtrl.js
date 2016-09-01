@@ -5,6 +5,7 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
                                         $ionicScrollDelegate,
                                         $timeout,
                                         Pkms,
+                                        Types,
                                         DpsUtil,
                                         ivCalculator,
                                         $ionicPopup,
@@ -18,9 +19,22 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
 
     $scope.pkm = Pkms.getPokemonById(pkmId);
     computeAbilitiesDpsForPkm($scope.pkm);
+
+    var types = [];
+    $scope.pkm.typesEn.forEach(function(type){
+      types.push(Types.getType(type));
+    });
+
+    var strongPokemons = [];
+    types.forEach(function(type){
+      type.weaknesses.forEach(function(wtype){
+        strongPokemons = strongPokemons.concat(Pkms.getPokemonByType(wtype.nameEn))  
+      })
+    });
     
-    $scope.typesPkm = Pkms.getPokemonByType("fire");
-    
+    $scope.strongPokemons = strongPokemons;
+
+
     $scope.computeIv = function(name, cp, hp, dust){
       $scope.ivsErrors = false;
 
@@ -144,6 +158,18 @@ angular.module('starter.pkmdetailctrl', ['ionic'])
           $scope.analysis = sentences['EXCELLENT']
         }
 
+    }
+
+    function arrayUnique(array) {
+      var a = array.concat();
+      for(var i=0; i<a.length; ++i) {
+        for(var j=i+1; j<a.length; ++j) {
+          if(a[i] === a[j])
+            a.splice(j--, 1);
+        }
+      }
+
+      return a;
     }
 
   });

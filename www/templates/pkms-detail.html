@@ -100,6 +100,28 @@
           </div>
         </ion-slide-page>
         <ion-slide-page class="padding scroll-content">
+          <div class="row text-center">
+          <div class="col">
+            <h3 class="pixelated-text grey">{{ language == FRENCH ? pkm.nameFr + ' est faible contre' : pkm.nameEn + ' is weak against'}}</h3>
+            <div id="tobecoverd">
+              <img class="cover" src="img/icon/flat-ball.png" style="width: 50px; height: 50px">
+            </div>
+          </div>
+          </div>
+          <hr>
+          <div class="row gallery">
+          <span ng-repeat="pkm in strongPokemons | unique: 'pkm.nameEn'" ng-show="strongPokemons.length > 0">
+            <div class="col col-30 text-center">
+              <img class="row center" ng-src="img/pokemons/{{pkm.id}}.ico"  style="width: 70px; height: 70px"/>
+              <b class="badge-type" ng-repeat="type in (language == FRENCH ? pkm.typesFr : pkm.typesEn)" ng-class="[type]">{{type}}</b>
+            </div>
+          </span>
+            <div class="col text-center" ng-show="strongPokemons.length == 0">
+              <span class="grey">{{ language == FRENCH ? pkm.nameFr + ' n\'a ausune faiblesse !' : pkm.nameEn + ' has no weakness' }}</span>
+            </div>
+          </div>
+        </ion-slide-page>
+        <ion-slide-page class="padding scroll-content">
 
           <div class="fixed-outside-top">
             <i id ="info-btn" class="ion-ios-information-outline" ng-click="showAlert()"></i>
