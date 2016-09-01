@@ -20,12 +20,16 @@
           <hr>
 
         <div class="row gallery">
-          <span ng-repeat="pkm in weakPokemons | orderBy: '-cp'">
+          <span ng-repeat="pkm in weakPokemons | orderBy: '-cp'" ng-show="weakPokemons.length > 0">
             <div class="col col-30 text-center">
               <img class="row center" ng-src="img/pokemons/{{pkm.id}}.ico"  style="width: 70px; height: 70px"/>
               <b class="badge-type" ng-repeat="type in (language == FRENCH ? pkm.typesFr : pkm.typesEn)" ng-class="[type]">{{type}}</b>
             </div>
           </span>
+          <div class="col text-center" ng-show="weakPokemons.length == 0">
+            <span class="grey">{{ language == FRENCH ? 'Aucun pokémons n\'est très faible face à cette compétence' : 'There is no very weak pokémons against this move' }}</span>
+            <img class="center" src="img/error-pika.jpg">
+          </div>
         </div>
 
 
