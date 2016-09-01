@@ -37,7 +37,8 @@
                   <ion-list>
                     <ion-item  class="ability-font-size"
                                ng-repeat="ability in pkm.abilities | orderBy:'-pkmDps'"
-                               ng-class="roundBorder($index,'simple')">
+                               ng-class="roundBorder($index,'simple')"
+                               href="#/tab/abilities/{{ ability.nameEn }}">
                       <div class="row">
                         <div class="col text-center">
                           <b>{{language == FRENCH ? ability.nameFr : ability.nameEn}}</b>&nbsp;
@@ -69,7 +70,8 @@
                 <ion-list>
                   <ion-item class="ability-font-size"
                             ng-repeat="speAbility in pkm.speAbilities | orderBy:'-pkmDps'"
-                            ng-class="roundBorder($index, 'charged')">
+                            ng-class="roundBorder($index, 'charged')"
+                            href="#/tab/abilities/{{ speAbility.nameEn }}">
                     <div class="row">
                       <div class="col text-center">
                         <b>{{language == FRENCH ? speAbility.nameFr : speAbility.nameEn}}</b>&nbsp;

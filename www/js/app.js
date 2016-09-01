@@ -20,7 +20,7 @@ angular.module('starter', ['ionic',
                             'ionic-toast',
                             'starter.pkmdetailctrl'])
 
-.run(function($rootScope, $ionicPlatform, ionicToast) {
+.run(function($rootScope, $ionicPlatform, ionicToast, $ionicHistory) {
 
   $rootScope.ENGLISH = "En";
   $rootScope.FRENCH = "Fr";
@@ -52,6 +52,12 @@ angular.module('starter', ['ionic',
         ionicToast.show('Français', 'middle', false, 1000);
       }
     }
+
+    $rootScope.goToMoves = function(){
+      window.location = "#/tab/abilities";
+      $ionicHistory.clearHistory()
+    }
+
   })
 
 
